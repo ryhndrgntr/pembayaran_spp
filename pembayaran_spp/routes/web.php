@@ -1,6 +1,8 @@
 <?php
 
 use Illuminate\Support\Facades\Route;
+use App\Http\Controllers\Web\Dashboard;
+use App\Http\Controllers\Web\Data_Petugas;
 
 /*
 |--------------------------------------------------------------------------
@@ -13,6 +15,12 @@ use Illuminate\Support\Facades\Route;
 |
 */
 
-Route::get('/', function () {
-    return view('welcome');
+
+ 
+Route::controller(Dashboard::class)->group(function () {
+    Route::get('/', 'index');
+});
+
+Route::controller(Data_Petugas::class)->group(function () {
+    Route::get('/petugas', 'index');
 });
