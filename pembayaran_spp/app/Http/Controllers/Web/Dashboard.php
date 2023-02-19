@@ -22,6 +22,7 @@ class Dashboard extends Controller
         //     "titleside" => "-", 
         //     "pageside" => "Menu"
         // ];
+        //misalnya ini fungsi kau buat dah jalan kenceng macam the flash ajg
         return view("dashboard.landing");
     }
 }
