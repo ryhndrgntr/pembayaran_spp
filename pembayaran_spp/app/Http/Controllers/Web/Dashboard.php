@@ -15,4 +15,13 @@ class Dashboard extends Controller
         ];
         return view("dashboard.index", $data);
     }
+
+    public function landing()
+    {
+        // $data = [
+        //     "titleside" => "-", 
+        //     "pageside" => "Menu"
+        // ];
+        return view("dashboard.landing");
+    }
 }

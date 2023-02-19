@@ -18,8 +18,38 @@
             </li>
             <li class="{{ (request()->is('petugas')) ? 'active' : '' }}">
                 <a href="/petugas">
-                    <i class="tim-icons icon-single-02"></i>
+                    <i class="fas fa-users"></i>
                     <p>Petugas</p>
+                </a>
+            </li>
+            <li class="{{ (request()->is('siswa')) ? 'active' : '' }}">
+                <a href="/siswa">
+                    <i class="fas fa-user"></i>
+                    <p>Siswa</p>
+                </a>
+            </li>
+            <li class="{{ (request()->is('kelas')) ? 'active' : '' }}">
+                <a href="/kelas">
+                    <i class="fas fa-door-open"></i>
+                    <p>Kelas</p>
+                </a>
+            </li>
+            <li class="{{ (request()->is('spp')) ? 'active' : '' }}">
+                <a href="/spp">
+                    <i class="fas fa-money-check"></i>
+                    <p>SPP</p>
+                </a>
+            </li>
+            <li class="{{ (request()->is('transaksi')) ? 'active' : '' }}">
+                <a href="/transaksi">
+                    <i class="fas fa-exchange"></i>
+                    <p>Transaksi</p>
+                </a>
+            </li>
+            <li class="{{ (request()->is('laporan')) ? 'active' : '' }}">
+                <a href="/laporan">
+                    <i class="fas fa-file"></i>
+                    <p>Laporan</p>
                 </a>
             </li>
             {{-- <li>
