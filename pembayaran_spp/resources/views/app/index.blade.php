@@ -80,7 +80,13 @@
                         <li class="nav-link"><a href="javascript:void(0)" class="nav-item dropdown-item">Profile</a></li>
                         <li class="nav-link"><a href="javascript:void(0)" class="nav-item dropdown-item">Settings</a></li>
                         <li class="dropdown-divider"></li>
-                        <li class="nav-link"><a href="javascript:void(0)" class="nav-item dropdown-item">Log out</a></li>
+                        <form action="{{ route('logout') }}" method="POST">
+                          @csrf
+                          <li class="nav-link">  
+                          <button class="nav-item dropdown-item" type="submit">Logout</button>
+                          </li>
+                        </form>
+                        {{-- <li class="nav-link"><a href="javascript:void(0)" class="nav-item dropdown-item">Log out</a></li> --}}
                     </ul>
                     </li>
                     <li class="separator d-lg-none"></li>

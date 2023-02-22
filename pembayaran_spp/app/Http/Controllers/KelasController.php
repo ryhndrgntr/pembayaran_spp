@@ -31,7 +31,12 @@ class KelasController extends Controller
      */
     public function create()
     {
-        return view('kelas.create');
+        $data = [
+            "titleside" => '-', 
+            "titlepage" => "Create Kelas",
+            "pageside" => "Menu",
+        ];
+        return view('kelas.create', $data);
     }
 
     /**
@@ -67,10 +72,15 @@ class KelasController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function edit(Kelas $kelas)
+    public function edit($id)
     {
-        $data_kelas = KelasModel::find($kelas);
-        return view('kelas.edit', compact('data_kelas'));
+        $data = [
+            "titleside" => '-', 
+            "titlepage" => "Edit Kelas",
+            "pageside" => "Menu",
+            "data_kelas" => KelasModel::find($id)
+        ];
+        return view('kelas.edit', $data);
     }
 
     /**

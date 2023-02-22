@@ -31,7 +31,13 @@ class PetugasController extends Controller
      */
     public function create()
     {
-        return view('petugas.create');
+        $data = [
+            "titleside" => '-', 
+            "titlepage" => "Create Petugas",
+            "pageside" => "Menu",
+           
+        ];
+        return view('petugas.create', $data);
     }
 
     /**
@@ -43,7 +49,7 @@ class PetugasController extends Controller
     public function store(Request $request)
     {
         PetugasModel::create([
-            'username'=> $request->username,
+            'email'=> $request->email,
             'password'=> $request->password,
             'nama_petugas'=> $request->nama_petugas,
             'level'=> $request->level,
@@ -69,11 +75,20 @@ class PetugasController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function edit(Petugas $petugas)
+    public function edit( $id)
     {
-        $data_petugas = PetugasModel::find($petugas);
-        return view('petugas.edit', compact('data_petugas'));
+        
+        $data = [
+            "titleside" => '-', 
+            "titlepage" => "Edit Petugas",
+            "pageside" => "Menu",
+            // "data_petugas" => PetugasModel::find($id)
+            "data_petugas" => PetugasModel::find($id)
+        ];
+        return view('petugas.edit', $data);
+        
     }
+
 
     /**
      * Update the specified resource in storage.
@@ -85,7 +100,7 @@ class PetugasController extends Controller
     public function update(Request $request, $id)
     {
         PetugasModel::find($id)->update([
-            'username'=> $request->username,
+            'email'=> $request->email,
             'password'=> $request->password,
             'nama_petugas'=> $request->nama_petugas,
             'level'=> $request->level,

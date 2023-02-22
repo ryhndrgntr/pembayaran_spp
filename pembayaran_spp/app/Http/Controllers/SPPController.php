@@ -30,7 +30,12 @@ class SPPController extends Controller
      */
     public function create()
     {
-        return view('spp.create');
+        $data = [
+            "titleside" => '-', 
+            "titlepage" => "Create SPP",
+            "pageside" => "Menu",
+        ];
+        return view('spp.create', $data);
     }
 
     /**
@@ -66,10 +71,15 @@ class SPPController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function edit(SPP $spp)
+    public function edit($id)
     {
-        $data_spp = SPPModel::find($spp);
-        return view('spp.edit', compact('data_spp'));
+        $data = [
+            "titleside" => '-', 
+            "titlepage" => "Data SPP",
+            "pageside" => "Menu",
+            "data_spp" => SPPModel::find($id)
+        ];
+        return view('spp.edit', $data);
     }
 
     /**

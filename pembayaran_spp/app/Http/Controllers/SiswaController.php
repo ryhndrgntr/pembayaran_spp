@@ -36,20 +36,16 @@ class SiswaController extends Controller
      */
     public function create()
     {
-        // Siswa::create([
-        //     'nisn'=> $request->nisn,
-        //     'nama'=> $request->nama,
-        //     'id_kelas'=> $request->id_kelas,
-        //     'alamat'=> $request->alamat,
-        //     'no_telp'=> $request->no_telp,
-        //     'jk'=> $request->jk,
-        //     'id_spp'=> $request->id_spp,
-        // ]);
-
-        // return redirect()->route('dsiswa.index')->with('message','Data Telah Berhasil Ditambahkan');
-        $data = KelasModel::all();
-        $data2 = SPPModel::all();
-        return view('siswa.create',  compact('data', 'data2'));
+        $data = [
+            "titleside" => '-', 
+            "titlepage" => "Create Siswa",
+            "pageside" => "Menu",
+            "data_kelas" => KelasModel::all(),
+            "data_spp" => SPPModel::all(),
+        ];
+        // $data1 = KelasModel::all();
+        // $data2 = SPPModel::all();
+        return view('siswa.create', $data);
     }
 
     /**
@@ -97,10 +93,18 @@ class SiswaController extends Controller
      */
     public function edit($id)
     {
-        $data_siswa=SiswaModel::find($id);
-        return view('siswa.edit', compact('data_siswa'));
+        $data = [
+            "titleside" => '-', 
+            "titlepage" => "Edit Siswa",
+            "pageside" => "Menu",
+            "data_kelas" => KelasModel::all(),
+            "data_spp" => SPPModel::all(),
+            "data_siswa" => SiswaModel::find($id)
+        ];
+        
+        return view('siswa.edit', $data);
 
-        return redirect()->route('siswa.index')->with('message','Data Telah Berhasil Ditambahkan');
+        // return redirect()->route('siswa.index')->with('message','Data Telah Berhasil Ditambahkan');
     }
 
     /**
@@ -123,7 +127,7 @@ class SiswaController extends Controller
         ]);
 
         return redirect()->route('siswa.index')->with('message', 'Data Telah Berhasil Diedit');
-    }
+    }   
 
     /**
      * Remove the specified resource from storage.

@@ -32,8 +32,7 @@
                               <thead>
                                 <tr>
                                     <th>ID</th>
-                                    <th>Username</th>
-                                    <th>Password</th>
+                                    <th>Email</th>
                                     <th>Nama Petugas</th>
                                     <th>Level</th>
                                     <th>Aksi</th>
@@ -46,8 +45,7 @@
                                 @foreach($data_petugas as $p)
                                 <tr>
                                     <td>{{$no++}}</td>
-                                    <td>{{$p->username}}</td>
-                                    <td>{{$p->password}}</td>
+                                    <td>{{$p->email}}</td>
                                     <td>{{$p->nama_petugas}}</td>
                                     <td>{{$p->level}}</td>
                                     <td>

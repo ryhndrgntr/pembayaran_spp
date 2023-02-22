@@ -1,6 +1,6 @@
 @extends('app/index')
-@section('title', 'Siswa')
-@section('pagejudul', 'Siswa')
+@section('title', 'Petugas')
+@section('pagejudul', 'Petugas')
 @section('content')
 <div class="content">
   <div class="row">
@@ -20,8 +20,8 @@
                                 <div class="form-col overflow-auto pe-xl-3" data-simplebar data-simplebar-auto-hide="false">
                                     <div class="row gx-0 gx-xl-3">
                                         <div class="col-xl mb-3">
-                                            <label class="form-label">Username</label>
-                                            <input name="username" type="text" class="form-control input-required" required>
+                                            <label class="form-label">Email</label>
+                                            <input name="email" type="text" class="form-control input-required" required>
                                         </div>
                                         <div class="col-xl mb-3">
                                             <label class="form-label">Password</label>
@@ -35,7 +35,7 @@
                                             <div id="level" class="d-flex gap-3">
                                                 <div class="w-100">
                                                     <label class="form-label">Level</label>
-                                                    <select name="level" id="select-level" class="form-select input-required" required>
+                                                    <select name="level" id="select-level" class="form-control input-required text-dark" required>
                                                         <option value="">-- Level --</option>
                                                         <option value="admin">Admin</option>
                                                         <option value="petugas">Petugas</option>

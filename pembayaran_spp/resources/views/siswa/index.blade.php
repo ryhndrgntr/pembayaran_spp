@@ -57,8 +57,8 @@
                                   {{-- <td>{{$item->tahun}} / Rp. {{number_format($item->nominal)}} </td> --}}
                                   <td>
                                       <div class="d-flex gap-2">
-                                          <a href="{{route ('siswa.edit', $item->id)}}" class="btn btn-primary text-white">Edit</a>
-                                          <form action="{{route('siswa.destroy', $item->id)}}" method="post">
+                                          <a href="{{route ('siswa.edit', $item->id_siswa)}}" class="btn btn-primary text-white">Edit</a>
+                                          <form action="{{route('siswa.destroy', $item->id_siswa)}}" method="post">
                                               @csrf
                                               @method('DELETE')
                                               <button class="btn btn-danger text-white"

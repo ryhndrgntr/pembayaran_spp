@@ -1,6 +1,6 @@
 @extends('app/index')
-@section('title', 'Siswa')
-@section('pagejudul', 'Siswa')
+@section('title', 'Kelas')
+@section('pagejudul', 'Kelas')
 @section('content')
 <div class="content">
   <div class="row">
@@ -16,31 +16,44 @@
                     {{csrf_field()}}
                     <div class="card-body">
                         <div class="row">
-                            <div class="col-xl">
-                                <div class="form-col overflow-auto pe-xl-3" data-simplebar data-simplebar-auto-hide="false">
-                                    <div class="row gx-0 gx-xl-3">
-                                        <div class="col-xl mb-3">
-                                            <label class="form-label">Nama Kelas</label>
-                                            <input name="nama_kelas" type="text" class="form-control input-required" required>
-                                        </div>
+                            <div class="col-xl-12 mb-3">
+                                <div id="nama_kelas" class="d-flex gap-3">
+                                    <div class="w-100">
+                                        <label class="form-label">Kelas</label>
+                                        <select name="nama_kelas" id="select-nama_kelas" class="form-control input-required" required>
+                                            <option value="">Pilih Berdasarkan Kelas</option>
+                                            <option value="X">X</option>
+                                            <option value="XI">XI</option>
+                                            <option value="XII">XII</option>
+                                        </select>
+                                    </div>
+                                </div>
+                            </div>
                                         <div class="col-xl-12 mb-3">
                                             <div id="jurusan" class="d-flex gap-3">
                                                 <div class="w-100">
                                                     <label class="form-label">Jurusan</label>
-                                                    <select name="jurusan" id="select-jurusan" class="form-select input-required" required>
+                                                    <select name="jurusan" id="select-jurusan" class="form-control input-required" required>
                                                         <option value="">Pilih Berdasarkan Jurusan</option>
-                                                        <option value="mipa">MIPA</option>
-                                                        <option value="ips">IPS</option>
-                                                        <option value="agama">Agama</option>
+                                                        <option value="MIPA 1">MIPA 1</option>
+                                                        <option value="MIPA 2">MIPA 2</option>
+                                                        <option value="MIPA 3">MIPA 3</option>
+                                                        <option value="MIPA 4">MIPA 4</option>
+                                                        <option value="MIPA 5">MIPA 5</option>
+                                                        <option value="IPS 1">IPS 1</option>
+                                                        <option value="IPS 2">IPS 2</option>
+                                                        <option value="IPS 3">IPS 3</option>
+                                                        <option value="IPS 4">IPS 4</option>
+                                                        <option value="IPS 5">IPS 5</option>
+                                                        <option value="AGAMA">Agama 1</option>
                                                     </select>
                                                 </div>
                                             </div>
                                         </div>
                                         
-                                        <div class="d-flex gap-2">
-                                            <button class="btn btn-primary" data-form-id="#form-musrenbang">Tambah Data</button>
-                                            {{-- <a href="{{route('dsiswa.create')}}" class="btn btn-primary">Tambah Data !</a> --}}
-                                        </div>
+                                        <div class="col-6 mt-3">
+                                            <button class="btn btn-primary">Tambah Data</button>
+                                          </div>
                                     </div>
                                 </div>
                             </div>

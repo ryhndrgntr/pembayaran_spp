@@ -15,14 +15,4 @@ class Dashboard extends Controller
         ];
         return view("dashboard.index", $data);
     }
-
-    public function landing()
-    {
-        // $data = [
-        //     "titleside" => "-", 
-        //     "pageside" => "Menu"
-        // ];
-        //misalnya ini fungsi kau buat dah jalan kenceng macam the flash ajg
-        return view("dashboard.landing");
-    }
 }

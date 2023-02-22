@@ -1,43 +1,20 @@
-<!DOCTYPE html>
-<html lang="en" class="scroll-smooth">
-  <head>
-    <meta charset="UTF-8" />
-    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>
-      Play | Free Tailwind CSS Template for Startup and SaaS By TailGrids
-    </title>
-    <link
-      rel="shortcut icon"
-      href="assets/images/favicon.png"
-      type="image/x-icon"
-    />
-    <link rel="stylesheet" href="assets/css/animate.css" />
-    <link rel="stylesheet" href="assets/css/tailwind.css" />
-
-    <!-- ==== WOW JS ==== -->
-    <script src="assets/js/wow.min.js"></script>
-    <script>
-      new WOW().init();
-    </script>
-  </head>
-  <body>
+@include('auth.layout.header')
     <!-- ====== Navbar Section Start -->
     <div
       class="ud-header absolute top-0 left-0 z-40 flex w-full items-center bg-transparent"
     >
       <div class="container">
         <div class="relative -mx-4 flex items-center justify-between">
-          <div class="w-60 max-w-full px-4">
-            <a href="index.html" class="navbar-logo block w-full py-5">
+          <div class="w-60 px-4">
+            <a href="#home" class="navbar-logo block py-5">
               <img
-                src="assets/images/logo/logo-white.svg"
+                src="assets/images/logo/kemenag2.png" width="70em"
                 alt="logo"
-                class="header-logo w-full"
+                class="header-logo"
               />
             </a>
           </div>
-          <div class="flex w-full items-center justify-between px-4">
+          {{-- <div class="flex w-full items-center justify-between px-4"> --}}
             <div>
               <button
                 id="navbarToggler"
@@ -68,113 +45,28 @@
                   </li>
                   <li class="group relative">
                     <a
-                      href="#about"
+                      href="#profile-school"
                       class="ud-menu-scroll mx-8 flex py-2 text-base text-dark group-hover:text-primary lg:mr-0 lg:ml-7 lg:inline-flex lg:py-6 lg:px-0 lg:text-white lg:group-hover:text-white lg:group-hover:opacity-70 xl:ml-12"
                     >
-                      About
+                      Profile School
                     </a>
                   </li>
-                  <li class="group relative">
-                    <a
-                      href="#pricing"
-                      class="ud-menu-scroll mx-8 flex py-2 text-base text-dark group-hover:text-primary lg:mr-0 lg:ml-7 lg:inline-flex lg:py-6 lg:px-0 lg:text-white lg:group-hover:text-white lg:group-hover:opacity-70 xl:ml-12"
-                    >
-                      Pricing
-                    </a>
-                  </li>
-                  <li class="group relative">
-                    <a
-                      href="#team"
-                      class="ud-menu-scroll mx-8 flex py-2 text-base text-dark group-hover:text-primary lg:mr-0 lg:ml-7 lg:inline-flex lg:py-6 lg:px-0 lg:text-white lg:group-hover:text-white lg:group-hover:opacity-70 xl:ml-12"
-                    >
-                      Team
-                    </a>
-                  </li>
-                  <li class="group relative">
-                    <a
-                      href="#contact"
-                      class="ud-menu-scroll mx-8 flex py-2 text-base text-dark group-hover:text-primary lg:mr-0 lg:ml-7 lg:inline-flex lg:py-6 lg:px-0 lg:text-white lg:group-hover:text-white lg:group-hover:opacity-70 xl:ml-12"
-                    >
-                      Contact
-                    </a>
-                  </li>
-                  <li class="submenu-item group relative">
-                    <a
-                      href="javascript:void(0)"
-                      class="relative mx-8 flex py-2 text-base text-dark after:absolute after:right-1 after:top-1/2 after:mt-[-2px] after:h-2 after:w-2 after:-translate-y-1/2 after:rotate-45 after:border-b-2 after:border-r-2 after:border-current group-hover:text-primary lg:mr-0 lg:ml-8 lg:inline-flex lg:py-6 lg:pl-0 lg:pr-4 lg:text-white lg:after:right-0 lg:group-hover:text-white lg:group-hover:opacity-70 xl:ml-12"
-                    >
-                      Pages
-                    </a>
-                    <div
-                      class="submenu relative top-full left-0 hidden w-[250px] rounded-sm bg-white p-4 transition-[top] duration-300 group-hover:opacity-100 lg:invisible lg:absolute lg:top-[110%] lg:block lg:opacity-0 lg:shadow-lg lg:group-hover:visible lg:group-hover:top-full"
-                    >
-                      <a
-                        href="about.html"
-                        class="block rounded py-[10px] px-4 text-sm text-body-color hover:text-primary"
-                      >
-                        About Page
-                      </a>
-                      <a
-                        href="pricing.html"
-                        class="block rounded py-[10px] px-4 text-sm text-body-color hover:text-primary"
-                      >
-                        Pricing Page
-                      </a>
-                      <a
-                        href="contact.html"
-                        class="block rounded py-[10px] px-4 text-sm text-body-color hover:text-primary"
-                      >
-                        Contact Page
-                      </a>
-                      <a
-                        href="blog-grids.html"
-                        class="block rounded py-[10px] px-4 text-sm text-body-color hover:text-primary"
-                      >
-                        Blog Grid Page
-                      </a>
-                      <a
-                        href="blog-details.html"
-                        class="block rounded py-[10px] px-4 text-sm text-body-color hover:text-primary"
-                      >
-                        Blog Details Page
-                      </a>
-                      <a
-                        href="signup.html"
-                        class="block rounded py-[10px] px-4 text-sm text-body-color hover:text-primary"
-                      >
-                        Sign Up Page
-                      </a>
-                      <a
-                        href="signin.html"
-                        class="block rounded py-[10px] px-4 text-sm text-body-color hover:text-primary"
-                      >
-                        Sign In Page
-                      </a>
-                      <a
-                        href="404.html"
-                        class="block rounded py-[10px] px-4 text-sm text-body-color hover:text-primary"
-                      >
-                        404 Page
-                      </a>
-                    </div>
-                  </li>
-                </ul>
               </nav>
             </div>
             <div class="hidden justify-end pr-16 sm:flex lg:pr-0">
               <a
-                href="signin.html"
-                class="loginBtn py-3 px-7 text-base font-medium text-white hover:opacity-70"
+                href="/login"
+                class="signUpBtn rounded-lg bg-white bg-opacity-20 py-3 px-6 text-base font-medium text-white duration-300 ease-in-out hover:bg-opacity-100 hover:text-dark"
               >
                 Sign In
               </a>
-              <a
+              {{-- <a
                 href="signup.html"
                 class="signUpBtn rounded-lg bg-white bg-opacity-20 py-3 px-6 text-base font-medium text-white duration-300 ease-in-out hover:bg-opacity-100 hover:text-dark"
               >
                 Sign Up
-              </a>
-            </div>
+              </a> --}}
+            {{-- </div> --}}
           </div>
         </div>
       </div>
@@ -186,7 +78,7 @@
       id="home"
       class="relative overflow-hidden bg-primary pt-[120px] md:pt-[130px] lg:pt-[160px]"
     >
-      <div class="container">
+      {{-- <div class="container">
         <div class="-mx-4 flex flex-wrap items-center">
           <div class="w-full px-4">
             <div
@@ -243,7 +135,7 @@
                 />
               </div>
             </div>
-          </div>
+          </div> --}}
 
           <div class="w-full px-4">
             <div
@@ -252,12 +144,12 @@
             >
               <div class="mt-16">
                 <img
-                  src="assets/images/hero/hero-image.jpg"
-                  alt="hero"
+                  src="assets/images/hero/man1bgr.jpg"
+                  alt=""
                   class="mx-auto max-w-full rounded-t-xl rounded-tr-xl"
                 />
               </div>
-              <div class="absolute bottom-0 -left-9 z-[-1]">
+              {{-- <div class="absolute bottom-0 -left-9 z-[-1]">
                 <svg
                   width="134"
                   height="106"
@@ -826,8 +718,8 @@
                     fill="white"
                   />
                 </svg>
-              </div>
-              <div class="absolute -top-6 -right-6 z-[-1]">
+              </div> --}}
+              {{-- <div class="absolute -top-6 -right-6 z-[-1]">
                 <svg
                   width="134"
                   height="106"
@@ -1396,7 +1288,7 @@
                     fill="white"
                   />
                 </svg>
-              </div>
+              </div> --}}
             </div>
           </div>
         </div>
@@ -1405,7 +1297,7 @@
     <!-- ====== Hero Section End -->
 
     <!-- ====== Features Section Start -->
-    <section class="pt-20 pb-8 lg:pt-[120px] lg:pb-[70px]">
+    {{-- <section class="pt-20 pb-8 lg:pt-[120px] lg:pb-[70px]">
       <div class="container">
         <div class="-mx-4 flex flex-wrap">
           <div class="w-full px-4">
@@ -1588,12 +1480,12 @@
           </div>
         </div>
       </div>
-    </section>
+    </section> --}}
     <!-- ====== Features Section End -->
 
     <!-- ====== About Section Start -->
     <section
-      id="about"
+      id="profile-school"
       class="bg-[#f3f4fe] pt-20 pb-20 lg:pt-[120px] lg:pb-[120px]"
     >
       <div class="container">
@@ -1606,11 +1498,11 @@
                 <div
                   class="w-full py-12 px-7 sm:px-12 md:p-16 lg:max-w-[565px] lg:py-9 lg:px-16 xl:max-w-[640px] xl:p-[70px]"
                 >
-                  <span
+                  {{-- <span
                     class="mb-5 inline-block bg-primary py-2 px-5 text-sm font-medium text-white"
                   >
                     About Us
-                  </span>
+                  </span> --}}
                   <h2
                     class="mb-6 text-3xl font-bold text-dark sm:text-4xl sm:leading-snug 2xl:text-[40px]"
                   >
@@ -1637,7 +1529,7 @@
                 <div class="text-center">
                   <div class="relative z-10 inline-block">
                     <img
-                      src="assets/images/about/about-image.svg"
+                      src="assets/images/about/man1.jpg" width="100%"
                       alt="image"
                       class="mx-auto lg:ml-auto"
                     />
@@ -1652,7 +1544,7 @@
     <!-- ====== About Section End -->
 
     <!-- ====== Pricing Section Start -->
-    <section
+    {{-- <section
       id="pricing"
       class="relative z-20 overflow-hidden bg-white pt-20 pb-12 lg:pt-[120px] lg:pb-[90px]"
     >
@@ -4512,11 +4404,11 @@
           </div>
         </div>
       </div>
-    </section>
+    </section> --}}
     <!-- ====== Team Section End -->
 
     <!-- ====== Contact Start ====== -->
-    <section id="contact" class="relative py-20 md:py-[120px]">
+    {{-- <section id="contact" class="relative py-20 md:py-[120px]">
       <div
         class="absolute top-0 left-0 z-[-1] h-1/2 w-full bg-[#f3f4fe] lg:h-[45%] xl:h-1/2"
       ></div>
@@ -4648,7 +4540,7 @@
           </div>
         </div>
       </div>
-    </section>
+    </section> --}}
     <!-- ====== Contact End ====== -->
 
     <!-- ====== Footer Section Start -->
@@ -4656,7 +4548,7 @@
       class="wow fadeInUp relative z-10 bg-black pt-20 lg:pt-[120px]"
       data-wow-delay=".15s"
     >
-      <div class="container">
+      {{-- <div class="container">
         <div class="-mx-4 flex flex-wrap">
           <div class="w-full px-4 sm:w-1/2 md:w-1/2 lg:w-4/12 xl:w-3/12">
             <div class="mb-10 w-full">
@@ -5263,19 +5155,82 @@
             ></path>
           </svg>
         </span>
+      </div> --}}
+      {{-- <div class="w-full px-4 md:w-1/3 lg:w-1/2">
+        <div class="my-1 flex justify-center md:justify-end">
+          <p class="text-base text-[#f3f4fe]">
+            Designed and Developed by
+            <a
+              href="https://instagram.com/__by.llaa"
+              rel="nofollow noopner"
+              target="_blank"
+              class="text-primary hover:underline"
+            >
+              Nabila Septia
+            </a>
+          </p>
+        </div>
+      </div> --}}
+      <div class="mt-12 border-t border-opacity-40 py-8 lg:mt-[60px]">
+        <div class="container">
+          <div class="-mx-4 flex flex-wrap">
+            <div class="w-full px-4 md:w-2/3 lg:w-1/2">
+              <div class="my-1">
+                <div
+                  class="-mx-3 flex items-center justify-center md:justify-start"
+                >
+                  <a
+                    href="javascript:void(0)"
+                    class="px-3 text-base text-[#f3f4fe] hover:text-primary"
+                  >
+                    Privacy policy
+                  </a>
+                  <a
+                    href="javascript:void(0)"
+                    class="px-3 text-base text-[#f3f4fe] hover:text-primary"
+                  >
+                    Legal notice
+                  </a>
+                  <a
+                    href="javascript:void(0)"
+                    class="px-3 text-base text-[#f3f4fe] hover:text-primary"
+                  >
+                    Terms of service
+                  </a>
+                </div>
+              </div>
+            </div>
+            <div class="w-full px-4 md:w-1/3 lg:w-1/2">
+              <div class="my-1 flex justify-center md:justify-end">
+                <p class="text-base text-[#f3f4fe]">
+                  Designed and Developed by
+                  <a
+                    href="https://instagram.com/__by.llaa"
+                    rel="nofollow noopner"
+                    target="_blank"
+                    class="text-primary hover:underline"
+                  >
+                    Nabila Septia
+                  </a>
+                </p>
+              </div>
+            </div>
+          </div>
+        </div>
       </div>
+
     </footer>
     <!-- ====== Footer Section End -->
 
     <!-- ====== Back To Top Start -->
-    <a
-      href="javascript:void(0)"
+    {{-- <a
+      href="#"
       class="back-to-top fixed bottom-8 right-8 left-auto z-[999] hidden h-10 w-10 items-center justify-center rounded-md bg-primary text-white shadow-md transition duration-300 ease-in-out hover:bg-dark"
     >
       <span
         class="mt-[6px] h-3 w-3 rotate-45 border-t border-l border-white"
       ></span>
-    </a>
+    </a> --}}
     <!-- ====== Back To Top End -->
 
     <!-- ====== All Scripts -->
@@ -5295,34 +5250,34 @@
         });
       });
 
-      // section menu active
-      function onScroll(event) {
-        const sections = document.querySelectorAll(".ud-menu-scroll");
-        const scrollPos =
-          window.pageYOffset ||
-          document.documentElement.scrollTop ||
-          document.body.scrollTop;
+//       // section menu active
+//       function onScroll(event) {
+//         const sections = document.querySelectorAll(".ud-menu-scroll");
+//         const scrollPos =
+//           window.pageYOffset ||
+//           document.documentElement.scrollTop ||
+//           document.body.scrollTop;
 
-        for (let i = 0; i < sections.length; i++) {
-          const currLink = sections[i];
-          const val = currLink.getAttribute("href");
-          const refElement = document.querySelector(val);
-          const scrollTopMinus = scrollPos + 73;
-          if (
-            refElement.offsetTop <= scrollTopMinus &&
-            refElement.offsetTop + refElement.offsetHeight > scrollTopMinus
-          ) {
-            document
-              .querySelector(".ud-menu-scroll")
-              .classList.remove("active");
-            currLink.classList.add("active");
-          } else {
-            currLink.classList.remove("active");
-          }
-        }
-      }
+//         for (let i = 0; i < sections.length; i++) {
+//           const currLink = sections[i];
+//           const val = currLink.getAttribute("href");
+//           const refElement = document.querySelector(val);
+//           const scrollTopMinus = scrollPos + 73;
+//           if (
+//             refElement.offsetTop <= scrollTopMinus &&
+//             refElement.offsetTop + refElement.offsetHeight > scrollTopMinus
+//           ) {
+//             document
+//               .querySelector(".ud-menu-scroll")
+//               .classList.remove("active");
+//             currLink.classList.add("active");
+//           } else {
+//             currLink.classList.remove("active");
+//           }
+//         }
+//       }
 
-      window.document.addEventListener("scroll", onScroll);
-    </script>
-  </body>
-</html>
+//       window.document.addEventListener("scroll", onScroll);
+//     </script>
+//   </body>
+// </html>
