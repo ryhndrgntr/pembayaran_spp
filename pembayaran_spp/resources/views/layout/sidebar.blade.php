@@ -12,8 +12,8 @@
         <ul class="nav">
 
             @if (Auth::user()->role == "admin")
-                <li class="{{ (request()->is('admin')) ? 'active' : '' }}">
-                    <a href="admin">
+                <li class="{{ (request()->is('dashadmin')) ? 'active' : '' }}">
+                    <a href="/dashadmin">
                         <i class="tim-icons icon-chart-pie-36"></i>
                         <p>Dashboard</p>
                     </a>
@@ -57,8 +57,8 @@
             @endif
             
             @if (Auth::user()->role == "petugas")
-                <li class="{{ (request()->is('petugas')) ? 'active' : '' }}">
-                    <a href="petugas">
+                <li class="{{ (request()->is('dashpetugas')) ? 'active' : '' }}">
+                    <a href="/dashpetugas">
                         <i class="tim-icons icon-chart-pie-36"></i>
                         <p>Dashboard</p>
                     </a>
@@ -66,8 +66,8 @@
             @endif
 
             @if (Auth::user()->role == "siswa")
-                <li class="{{ (request()->is('siswa')) ? 'active' : '' }}">
-                    <a href="siswa">
+                <li class="{{ (request()->is('dashsiswa')) ? 'active' : '' }}">
+                    <a href="/dashsiswa">
                         <i class="tim-icons icon-chart-pie-36"></i>
                         <p>Dashboard</p>
                     </a>

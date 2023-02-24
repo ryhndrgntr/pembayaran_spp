@@ -31,7 +31,7 @@ Route::post('/logout', [AuthController::class, 'logout'])->name('logout');
 Route::middleware(['auth','user-role:admin'])->group(function()
 {
     Route::controller(Dashboard::class)->group(function () {
-        Route::get('/dash/admin', 'admin');
+        Route::get('/dashadmin', 'admin');
     });
     Route::resource('/siswa', SiswaController::class);
     Route::resource('/petugas', PetugasController::class);
@@ -42,14 +42,14 @@ Route::middleware(['auth','user-role:admin'])->group(function()
 Route::middleware(['auth','user-role:petugas'])->group(function()
 {
     Route::controller(Dashboard::class)->group(function () {
-        Route::get('/dash/petugas', 'petugas');
+        Route::get('/dashpetugas', 'petugas');
     });
 });
 
 Route::middleware(['auth','user-role:siswa'])->group(function()
 {
     Route::controller(Dashboard::class)->group(function () {
-        Route::get('/dash/siswa', 'siswa');
+        Route::get('/dashsiswa', 'siswa');
     });
 });
 

@@ -132,10 +132,10 @@ class PetugasController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function destroy($id)
+    public function destroy(Request $request, $id)
     {
         $model = PetugasModel::find($id);
-        $model2 = User::find($id);
+        $model2 = User::find($request->id_users);
         $model->delete();
         $model2->delete();
         return redirect()->route('petugas.index')->with('message', 'Data Telah Berhasil Dihapus');

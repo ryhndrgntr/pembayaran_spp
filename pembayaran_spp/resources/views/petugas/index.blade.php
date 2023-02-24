@@ -51,6 +51,7 @@
                                             <a href="{{route ('petugas.edit', $p->id_petugas)}}" class="btn btn-primary text-white">Edit</a>
                                             <form action="{{route ('petugas.destroy', $p->id_petugas)}}" method="post">
                                                 @csrf
+                                                <input type="hidden" name="id_users" value="{{ $p->id_users }}">
                                                 @method('DELETE')
                                                 <button class="btn btn-danger text-white"
                                                     onclick="return confirm('Apakah anda yakin ingin menghapus data ini?')">Hapus</a></button>
