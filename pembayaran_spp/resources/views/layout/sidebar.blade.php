@@ -10,13 +10,14 @@
             </a>
         </div>
         <ul class="nav">
-            <li class="{{ (request()->is('/')) ? 'active' : '' }}">
-                <a href="/">
-                    <i class="tim-icons icon-chart-pie-36"></i>
-                    <p>Dashboard</p>
-                </a>
-            </li>
+
             @if (Auth::user()->role == "admin")
+                <li class="{{ (request()->is('admin')) ? 'active' : '' }}">
+                    <a href="admin">
+                        <i class="tim-icons icon-chart-pie-36"></i>
+                        <p>Dashboard</p>
+                    </a>
+                </li>
                 <li class="{{ (request()->is('petugas')) ? 'active' : '' }}">
                     <a href="/petugas">
                         <i class="fas fa-users"></i>
@@ -54,6 +55,26 @@
                     </a>
                 </li>
             @endif
+            
+            @if (Auth::user()->role == "petugas")
+                <li class="{{ (request()->is('petugas')) ? 'active' : '' }}">
+                    <a href="petugas">
+                        <i class="tim-icons icon-chart-pie-36"></i>
+                        <p>Dashboard</p>
+                    </a>
+                </li>
+            @endif
+
+            @if (Auth::user()->role == "siswa")
+                <li class="{{ (request()->is('siswa')) ? 'active' : '' }}">
+                    <a href="siswa">
+                        <i class="tim-icons icon-chart-pie-36"></i>
+                        <p>Dashboard</p>
+                    </a>
+                </li>
+            @endif
+
+            
             {{-- <li>
             <a href="./icons.html">
                 <i class="tim-icons icon-atom"></i>

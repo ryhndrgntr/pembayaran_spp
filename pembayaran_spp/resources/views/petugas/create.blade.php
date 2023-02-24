@@ -25,14 +25,14 @@
                                         </div>
                                         <div class="col-xl mb-3">
                                             <label class="form-label">Password</label>
-                                            <input name="password" type="text" class="form-control input-required" required>
+                                            <input name="password" type="password" class="form-control input-required" required>
                                         </div>
                                         <div class="col-xl-4 mb-3">
                                             <label class="form-label">Nama Petugas</label>
                                             <input name="nama_petugas" type="text" class="form-control input-required" required>
                                         </div>
                                         <div class="col-xl-12 mb-3">
-                                            <div id="level" class="d-flex gap-3">
+                                            {{-- <div id="level" class="d-flex gap-3">
                                                 <div class="w-100">
                                                     <label class="form-label">Level</label>
                                                     <select name="level" id="select-level" class="form-control input-required text-dark" required>
@@ -41,7 +41,7 @@
                                                         <option value="petugas">Petugas</option>
                                                     </select>
                                                 </div>
-                                            </div>
+                                            </div> --}}
                                         </div>
                                         
                                         <div class="d-flex gap-2">
