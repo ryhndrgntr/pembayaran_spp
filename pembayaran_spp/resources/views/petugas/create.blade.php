@@ -32,6 +32,7 @@
                                             <input name="nama_petugas" type="text" class="form-control input-required" required>
                                         </div>
                                         <div class="col-xl-12 mb-3">
+                                            
                                             {{-- <div id="level" class="d-flex gap-3">
                                                 <div class="w-100">
                                                     <label class="form-label">Level</label>

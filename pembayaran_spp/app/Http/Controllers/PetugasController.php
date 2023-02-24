@@ -133,4 +133,5 @@ class PetugasController extends Controller
         $model2->delete();
         return redirect()->route('petugas.index')->with('message', 'Data Telah Berhasil Dihapus');
     }
+    
 }

@@ -50,6 +50,7 @@ class User extends Authenticatable
             get: fn ($value) => ["siswa", "petugas", "admin"][$value], 
         );
     }
+    
 
 
 }
