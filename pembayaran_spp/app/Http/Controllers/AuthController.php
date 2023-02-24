@@ -43,7 +43,6 @@ class AuthController extends Controller
                 $request->session()->regenerate();
                 return redirect()->intended('/dash/siswa');
             }
-            
         }else{
             {
                 return redirect()->route('login')->with('error','Incorrect email or password!.');
