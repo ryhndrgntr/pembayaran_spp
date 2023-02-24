@@ -8,13 +8,12 @@
       <div class="card card-chart">
         <div class="card-header ">
           <div class="row">
-            {{ $sentences }}
+            
           </div>
         </div>
         <div class="card-body">
-          <div class="chart-area">
-            <canvas id="chartBig1"></canvas>
-          </div>
+          <h3 class="text-light">{{ $sentences }}</h3>
+          <h4 class="text-light">Welcome {{ $name_user }}</h4>
         </div>
       </div>
     </div>
