@@ -34,7 +34,6 @@
                                     <th>ID</th>
                                     <th>Email</th>
                                     <th>Nama Petugas</th>
-                                    <th>Level</th>
                                     <th>Aksi</th>
                                 </tr>
                             </thead>
@@ -47,7 +46,6 @@
                                     <td>{{$no++}}</td>
                                     <td>{{$p->email}}</td>
                                     <td>{{$p->nama_petugas}}</td>
-                                    <td>{{$p->level}}</td>
                                     <td>
                                         <div class="d-flex gap-2">
                                             <a href="{{route ('petugas.edit', $p->id_petugas)}}" class="btn btn-primary text-white">Edit</a>

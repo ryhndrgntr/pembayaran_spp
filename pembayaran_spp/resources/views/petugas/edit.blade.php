@@ -22,19 +22,19 @@
                         </div>
                         <div class="col-md-6">
                           <label class="form-label">Password</label>
-                          <input type="text" class="form-control" name="password" value="{{ $data_petugas->password }}" readonly>
+                          <input type="password" class="form-control" name="password" value="{{ $data_petugas->password }}" readonly>
                         </div>
                         <div class="col-6 mt-3">
                           <label class="form-label">Nama Petugas</label>
                           <input type="text" class="form-control" name="nama_petugas" value="{{ $data_petugas->nama_petugas }}" required>
                         </div>
                         <div class="col-6 mt-5">
-                            <label class="form-label">Level</label>
+                            {{-- <label class="form-label">Level</label>
                             <select name="level" id="select-level" class="form-select input-required" value="{{ $data_petugas->level }}" required>
                                 <option selected>-- Level --</option>
                                 <option @if($data_petugas->level == "admin"): @selected(true) @endif value="admin">Admin</option>
                                 <option @if($data_petugas->level == "petugas"): @selected(true) @endif value="petugas">Petugas</option>
-                            </select>
+                            </select> --}}
                         </div>
                         <div class="col-6 mt-3">
                           <button type="submit" class="btn btn-primary">Submit</button>
