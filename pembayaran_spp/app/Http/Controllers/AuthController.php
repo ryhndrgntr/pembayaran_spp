@@ -33,15 +33,15 @@ class AuthController extends Controller
             if(Auth::user()->role == "admin")
             {
                 $request->session()->regenerate();
-                return redirect()->intended('/dash/admin');
+                return redirect()->intended('/dashadmin');
             }
             else if(Auth::user()->role == "petugas")
             {
                 $request->session()->regenerate();
-                return redirect()->intended('/dash/petugas');
+                return redirect()->intended('/dashpetugas');
             }else if(Auth::user()->role == "siswa"){
                 $request->session()->regenerate();
-                return redirect()->intended('/dash/siswa');
+                return redirect()->intended('/dashsiswa');
             }
         }else{
             {
