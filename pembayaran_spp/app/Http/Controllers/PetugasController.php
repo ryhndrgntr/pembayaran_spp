@@ -87,12 +87,13 @@ class PetugasController extends Controller
     public function edit( $id)
     {
         
+        
         $data = [
             "titleside" => '-', 
             "titlepage" => "Edit Petugas",
             "pageside" => "Menu",
             // "data_petugas" => PetugasModel::find($id)
-            "data_petugas" => PetugasModel::find($id)
+            "data_petugas" => PetugasModel::join("users", "users.id", "=" , "petugas.id_users")->find($id)
         ];
         return view('petugas.edit', $data);
         
@@ -107,15 +108,21 @@ class PetugasController extends Controller
      * @return \Illuminate\Http\Response
      */
     public function update(Request $request, $id)
-    {
+    {   
         PetugasModel::find($id)->update([
             'nama_petugas'=> $request->nama_petugas,
         ]);
-
-        User::find($id)->update([
+        
+        User::find($request->id_users)->update([
+            'name' => $request->nama_petugas,
             'email'=> $request->email,
         ]);
-        
+
+        // PetugasModel::join("users", "users.id", "=" , "petugas.id_users")->find($id)->update([
+        //     'nama_petugas'=> $request->nama_petugas,
+        //     'email'=> $request->email,
+        // ]);
+
         return redirect()->route('petugas.index')->with('message', 'Data Telah Berhasil Diedit');
     }
 

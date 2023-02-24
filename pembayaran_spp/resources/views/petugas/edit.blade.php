@@ -14,6 +14,7 @@
                 </div>
                     <div class="card-body">
                       <form action="{{ route('petugas.update', $data_petugas->id_petugas)}}" method="post" class="row g-3">
+                        <input type="hidden" name="id_users" value="{{ $data_petugas->id_users }}">
                         @csrf
                         @method('put')
                         <div class="col-md-6">
