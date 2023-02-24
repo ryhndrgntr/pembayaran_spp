@@ -28,19 +28,36 @@ Route::get('/login', [AuthController::class, 'showLoginForm'])->name('login');
 Route::post('/login', [AuthController::class, 'login']);
 Route::post('/logout', [AuthController::class, 'logout'])->name('logout');
 
+Route::middleware(['auth','user-role:admin'])->group(function()
+{
+    Route::controller(Dashboard::class)->group(function () {
+        Route::get('/dash/admin', 'admin');
+    });
+    Route::resource('/siswa', SiswaController::class);
+    Route::resource('/petugas', PetugasController::class);
+    Route::resource('/kelas', KelasController::class);
+    Route::resource('/spp', SPPController::class);
+});
 
-Route::controller(Dashboard::class)->group(function () {
-    
-    Route::get('/dashboard', 'index');
+Route::middleware(['auth','user-role:petugas'])->group(function()
+{
+    Route::controller(Dashboard::class)->group(function () {
+        Route::get('/dash/petugas', 'petugas');
+    });
+});
 
+Route::middleware(['auth','user-role:siswa'])->group(function()
+{
+    Route::controller(Dashboard::class)->group(function () {
+        Route::get('/dash/siswa', 'siswa');
+    });
 });
 
 
 
-Route::resource('/siswa', SiswaController::class);
-Route::resource('/petugas', PetugasController::class);
-Route::resource('/kelas', KelasController::class);
-Route::resource('/spp', SPPController::class);
+
+
+
 
 // Route::controller(Data_Petugas::class)->group(function () {
 //     Route::get('/petugas', 'index');

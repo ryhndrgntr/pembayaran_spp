@@ -8,6 +8,7 @@
       <div class="card card-chart">
         <div class="card-header ">
           <div class="row">
+            {{ $sentences }}
           </div>
         </div>
         <div class="card-body">

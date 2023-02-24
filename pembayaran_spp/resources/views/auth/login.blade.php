@@ -99,6 +99,13 @@
                 </a>
               </div>
               <form method="POST" action="{{ route('login') }}">
+                @if ($msg = Session::get('error'))
+                  <div class="alert alert-danger alert-block">
+                    <button type="button" class="close" data-dismiss="alert">×</button>	
+                    <strong>{{ $msg }}</strong>
+                  </div>
+                @endif
+                
                 @csrf
                 <div class="mb-6">
                   <input

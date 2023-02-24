@@ -7,10 +7,15 @@ use Illuminate\Http\Request;
 
 class AuthController extends Controller
 {
+
+    public function __construct()
+    {
+        $this->middleware('guest')->except('logout');
+    }
+
     public function landing() {
         return view('auth.landing');
     }
-
 
     public function showLoginForm()
     {
@@ -25,18 +30,30 @@ class AuthController extends Controller
         ]);
 
         if (Auth::attempt($credentials)) {
-            $request->session()->regenerate();
-
-            return redirect()->intended('/dashboard');
+            if(Auth::user()->role == "admin")
+            {
+                $request->session()->regenerate();
+                return redirect()->intended('/dash/admin');
+            }
+            else if(Auth::user()->role == "petugas")
+            {
+                $request->session()->regenerate();
+                return redirect()->intended('/dash/petugas');
+            }else if(Auth::user()->role == "siswa"){
+                $request->session()->regenerate();
+                return redirect()->intended('/dash/siswa');
+            }
+            
+        }else{
+            {
+                return redirect()->route('login')->with('error','Incorrect email or password!.');
+            }
         }
-
-        return back()->withErrors([
-            'email' => 'The provided credentials do not match our records.',
-        ]);
+        
     }
     public function logout()
-{
-    Auth::logout();
-    return redirect()->route('login');
-}
+    {
+        Auth::logout();
+        return redirect()->route('login');
+    }
 }
