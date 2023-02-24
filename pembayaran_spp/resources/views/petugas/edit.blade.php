@@ -14,6 +14,7 @@
                 </div>
                     <div class="card-body">
                       <form action="{{ route('petugas.update', $data_petugas->id_petugas)}}" method="post" class="row g-3">
+                        <input type="hidden" name="id_users" value="{{ $data_petugas->id_users }}">
                         @csrf
                         @method('put')
                         <div class="col-md-6">
@@ -29,6 +30,7 @@
                           <input type="text" class="form-control" name="nama_petugas" value="{{ $data_petugas->nama_petugas }}" required>
                         </div>
                         <div class="col-6 mt-5">
+                            
                             {{-- <label class="form-label">Level</label>
                             <select name="level" id="select-level" class="form-select input-required" value="{{ $data_petugas->level }}" required>
                                 <option selected>-- Level --</option>

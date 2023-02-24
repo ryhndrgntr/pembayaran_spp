@@ -4,6 +4,7 @@ namespace App\Http\Controllers\Web;
 
 use App\Http\Controllers\Controller;
 use Illuminate\Http\Request;
+use Auth;
 
 class Dashboard extends Controller
 {
@@ -13,6 +14,7 @@ class Dashboard extends Controller
             "titleside" => "-", 
             "pageside" => "Menu",
             "sentences" => "Admin",
+            "name_user" => Auth::user()->name,
         ];
         return view("dashboard.admin.index", $data);
     }
@@ -22,6 +24,7 @@ class Dashboard extends Controller
             "titleside" => "-", 
             "pageside" => "Menu",
             "sentences" => "Petugas",
+            "name_user" => Auth::user()->name,
         ];
         return view("dashboard.petugas.index", $data);
     }
@@ -31,9 +34,11 @@ class Dashboard extends Controller
             "titleside" => "-", 
             "pageside" => "Menu",
             "sentences" => "Siswa",
+            "name_user" => Auth::user()->name,
         ];
         return view("dashboard.siswa.index", $data);
     }
 
+    
     
 }

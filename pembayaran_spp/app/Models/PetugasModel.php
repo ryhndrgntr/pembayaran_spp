@@ -16,4 +16,5 @@ class PetugasModel extends Model
         'id_users'
     ];
     public $timestamp = true;
+
 }
