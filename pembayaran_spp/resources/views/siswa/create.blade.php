@@ -73,11 +73,9 @@
                                                 </div>
                                             </div>
                                         </div>
-                                        
-                                        <div class="d-flex gap-2">
-                                            <button class="btn btn-primary" data-form-id="#form-musrenbang">Tambah Data</button>
-                                            {{-- <a href="{{route('dsiswa.create')}}" class="btn btn-primary">Tambah Data !</a> --}}
-                                        </div>
+                                        <div class="col-6 mt-3">
+                                            <button type="submit" class="btn btn-primary">Tambah Data</button>
+                                          </div>
                                     </div>
                                 </div>
                             </div>

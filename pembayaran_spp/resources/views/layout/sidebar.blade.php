@@ -43,7 +43,7 @@
                     </a>
                 </li>
                 <li class="{{ (request()->is('transaksi')) ? 'active' : '' }}">
-                    <a href="/transaksi">
+                    <a href="/transaksi/list">
                         <i class="fas fa-exchange"></i>
                         <p>Transaksi</p>
                     </a>
@@ -61,6 +61,18 @@
                     <a href="/dashpetugas">
                         <i class="tim-icons icon-chart-pie-36"></i>
                         <p>Dashboard</p>
+                    </a>
+                </li>
+                <li class="{{ (request()->is('transaksi')) ? 'active' : '' }}">
+                    <a href="/transaksi/">
+                        <i class="fas fa-exchange"></i>
+                        <p>Transaksi</p>
+                    </a>
+                </li>
+                <li class="{{ (request()->is('laporan')) ? 'active' : '' }}">
+                    <a href="/laporan">
+                        <i class="fas fa-file"></i>
+                        <p>Laporan</p>
                     </a>
                 </li>
             @endif

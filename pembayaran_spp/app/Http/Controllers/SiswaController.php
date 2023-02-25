@@ -6,8 +6,10 @@ use Illuminate\Http\Request;
 use App\Models\SiswaModel;
 use App\Models\KelasModel;
 use App\Models\SPPModel;
-use Illuminate\Foundation\Auth\User;
+use App\Models\User;
+use Illuminate\Support\Facades\Hash;
 use Session;
+
 
 class SiswaController extends Controller
 {
@@ -24,8 +26,10 @@ class SiswaController extends Controller
             "pageside" => "Menu",
             "data_siswa" => SiswaModel::join('kelas', 'kelas.id_kelas', '=', 'siswa.id_kelas')
                                     ->join('spp', 'spp.id_spp', '=', 'siswa.id_spp')
+                                    ->join("users", "users.id", "=" , "siswa.id_users")
                                     ->get()
         ];
+        // dd($data);
         return view("siswa.index", $data);
     }
 
@@ -57,16 +61,36 @@ class SiswaController extends Controller
     public function store(Request $request)
     {
         // dd($request->all());
+        // SiswaModel::create([
+        //     'nisn'=> $request->nisn,
+        //     'nama'=> $request->nama,
+        //     'id_kelas'=> $request->id_kelas,
+        //     'alamat'=> $request->alamat,
+        //     'no_telp'=> $request->no_telp,
+        //     'jk'=> $request->jk,
+        //     "id_kelas" => $request->kelas,
+        //     'id_spp'=> $request->spp,
+        // ]);
+        $nama = $request->nama;
+
+        $user = User::create([
+            'email'=> $request->nisn . "@gmail.com",
+            'password'=> Hash::make($request->nisn),
+            'name'=> $nama,
+            'role'=> 0,
+        ]);
+
         SiswaModel::create([
+            'nama'=> $nama,
             'nisn'=> $request->nisn,
-            'nama'=> $request->nama,
             'id_kelas'=> $request->id_kelas,
             'alamat'=> $request->alamat,
             'no_telp'=> $request->no_telp,
             'jk'=> $request->jk,
             "id_kelas" => $request->kelas,
             'id_spp'=> $request->spp,
-        ]);
+            'id_users' => $user->id,
+        ]); 
 
         return redirect()->route('siswa.index')->with('message','Data Telah Berhasil Ditambahkan');
     //     return view('dsiswa.create');
@@ -116,16 +140,16 @@ class SiswaController extends Controller
      */
     public function update(Request $request, $id)
     {
-        SiswaModel::find($id)->update([
-            'nisn'=> $request->nisn,
-            'nama'=> $request->nama,
-            'id_kelas'=> $request->id_kelas,
-            'alamat'=> $request->alamat,
-            'jk'=> $request->jk,
-            'no_telp'=> $request->no_telp,
-            'id_spp'=> $request->id_spp,
-        ]);
 
+        SiswaModel::find($id)->update([
+            'nama'=> $request->nama,
+            'alamat'=> $request->alamat,
+            'no_telp'=> $request->no_telp,
+            'jk'=> $request->jk,
+            "id_kelas" => $request->kelas,
+            'id_spp'=> $request->spp,
+        ]);
+        
         return redirect()->route('siswa.index')->with('message', 'Data Telah Berhasil Diedit');
     }   
 
@@ -135,11 +159,12 @@ class SiswaController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function destroy($id)
+    public function destroy(Request $request, $id)
     {
         $model = SiswaModel::find($id);
+        $model2 = User::find($request->id_users);
         $model->delete();
-
+        $model2->delete();
         return redirect()->route('siswa.index')->with('message', 'Data Telah Berhasil Dihapus');
     }
 }

@@ -19,5 +19,6 @@ class SiswaModel extends Model
         'no_telp',
         'jk',
         'id_spp',
+        'id_users',
     ];
 }

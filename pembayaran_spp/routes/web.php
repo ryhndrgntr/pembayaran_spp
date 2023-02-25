@@ -2,15 +2,13 @@
 
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\Web\Dashboard;
-// use App\Http\Controllers\Web\Data_Petugas;
-// use App\Http\Controllers\Web\Siswa;
-// use App\Http\Controllers\Web\Kelas;
-// use App\Http\Controllers\Web\SPP;
+
 
 use App\Http\Controllers\SiswaController;
 use App\Http\Controllers\PetugasController;
 use App\Http\Controllers\KelasController;
 use App\Http\Controllers\SPPController;
+use App\Http\Controllers\TransaksiController;
 use App\Http\Controllers\AuthController;
 
 /*
@@ -37,12 +35,24 @@ Route::middleware(['auth','user-role:admin'])->group(function()
     Route::resource('/petugas', PetugasController::class);
     Route::resource('/kelas', KelasController::class);
     Route::resource('/spp', SPPController::class);
+    // Route::resource('/transaksi', TransaksiController::class);
+    Route::prefix('transaksi')->group(function () {
+        Route::get('/list', [TransaksiController::class, 'index'])->name('transaksi.index');
+    });
 });
 
 Route::middleware(['auth','user-role:petugas'])->group(function()
 {
     Route::controller(Dashboard::class)->group(function () {
         Route::get('/dashpetugas', 'petugas');
+    });
+    Route::prefix('transaksi')->group(function () {
+        Route::get('/', [TransaksiController::class, 'index'])->name('transaksi.index');
+        Route::get('/create', [TransaksiController::class, 'create'])->name('transaksi.create');
+        Route::post('/', [TransaksiController::class, 'store'])->name('transaksi.store');
+        Route::get('/{transaksi}/edit', [TransaksiController::class, 'edit'])->name('transaksi.edit');
+        Route::put('/{transaksi}', [TransaksiController::class, 'update'])->name('transaksi.update');
+        Route::delete('/{transaksi}', [TransaksiController::class, 'destroy'])->name('transaksi.destroy');
     });
 });
 
