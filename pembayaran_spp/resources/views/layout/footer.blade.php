@@ -22,7 +22,7 @@
         <script>
           document.write(new Date().getFullYear())
         </script>2023 dibuat dengan <i class="tim-icons icon-heart-2"></i> oleh
-        <a href="javascript:void(0)" target="_blank">Nabila Septia</a> untuk App Pembayaran dan SPP.
+        <a href="https://instagram.com/__by.llaa" target="_blank">Nabila Septia</a> untuk App Pembayaran dan SPP.
       </div>
     </div>
   </footer>

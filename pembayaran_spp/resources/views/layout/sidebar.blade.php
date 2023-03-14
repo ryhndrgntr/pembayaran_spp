@@ -43,7 +43,7 @@
                     </a>
                 </li>
                 <li class="{{ (request()->is('transaksi')) ? 'active' : '' }}">
-                    <a href="/transaksi/list">
+                    <a href="/transaksi/">
                         <i class="fas fa-exchange"></i>
                         <p>Transaksi</p>
                     </a>
@@ -52,6 +52,12 @@
                     <a href="/laporan">
                         <i class="fas fa-file"></i>
                         <p>Laporan</p>
+                    </a>
+                </li>
+                <li class="{{ (request()->is('histori')) ? 'active' : '' }}">
+                    <a href="/histori">
+                        <i class="fas fa-history"></i>
+                        <p>Histori Pembayaran</p>
                     </a>
                 </li>
             @endif
@@ -69,12 +75,6 @@
                         <p>Transaksi</p>
                     </a>
                 </li>
-                <li class="{{ (request()->is('laporan')) ? 'active' : '' }}">
-                    <a href="/laporan">
-                        <i class="fas fa-file"></i>
-                        <p>Laporan</p>
-                    </a>
-                </li>
             @endif
 
             @if (Auth::user()->role == "siswa")
@@ -82,6 +82,12 @@
                     <a href="/dashsiswa">
                         <i class="tim-icons icon-chart-pie-36"></i>
                         <p>Dashboard</p>
+                    </a>
+                </li>
+                <li class="{{ (request()->is('histori')) ? 'active' : '' }}">
+                    <a href="/histori">
+                        <i class="fas fa-history"></i>
+                        <p>Histori Pembayaran</p>
                     </a>
                 </li>
             @endif

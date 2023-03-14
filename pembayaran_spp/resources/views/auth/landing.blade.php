@@ -1,7 +1,9 @@
 @include('auth.layout.header')
     <!-- ====== Navbar Section Start -->
+    {{-- <div style="margin: 0; padding: 0; height: 100%; background-image: url('assets/images/hero/man1bgr.jpg !'); background-size: cover; background-position: center;"> --}}
     <div
       class="ud-header absolute top-0 left-0 z-40 flex w-full items-center bg-transparent"
+      style="background-color: #55cd4c"
     >
       <div class="container">
         <div class="relative -mx-4 flex items-center justify-between">
@@ -39,6 +41,7 @@
                     <a
                       href="#home"
                       class="ud-menu-scroll mx-8 flex py-2 text-base text-dark group-hover:text-primary lg:mr-0 lg:inline-flex lg:py-6 lg:px-0 lg:text-white lg:group-hover:text-white lg:group-hover:opacity-70"
+                      style="color : black"
                     >
                       Home
                     </a>
@@ -47,6 +50,7 @@
                     <a
                       href="#profile-school"
                       class="ud-menu-scroll mx-8 flex py-2 text-base text-dark group-hover:text-primary lg:mr-0 lg:ml-7 lg:inline-flex lg:py-6 lg:px-0 lg:text-white lg:group-hover:text-white lg:group-hover:opacity-70 xl:ml-12"
+                      style="color : black"
                     >
                       Profile School
                     </a>
@@ -57,6 +61,7 @@
               <a
                 href="/login"
                 class="signUpBtn rounded-lg bg-white bg-opacity-20 py-3 px-6 text-base font-medium text-white duration-300 ease-in-out hover:bg-opacity-100 hover:text-dark"
+                style="color : black"
               >
                 Sign In
               </a>
@@ -76,7 +81,8 @@
     <!-- ====== Hero Section Start -->
     <div
       id="home"
-      class="relative overflow-hidden bg-primary pt-[120px] md:pt-[130px] lg:pt-[160px]"
+      class="relative overflow-hidden pt-0 mt-4
+      {{-- pt-[120px] md:pt-[130px] lg:pt-[120px]"  --}}
     >
       {{-- <div class="container">
         <div class="-mx-4 flex flex-wrap items-center">
@@ -137,18 +143,29 @@
             </div>
           </div> --}}
 
-          <div class="w-full px-4">
+          <div class="mt-0">
+            <img
+              src="assets/images/hero/man.jpeg"
+              alt=""
+              {{-- class="mx-auto max-w-full rounded-t-xl rounded-tr-xl w-120" --}}
+              style="width: 100%"
+
+            />
+          </div>
+          <div class="w-full px-0">
             <div
               class="wow fadeInUp relative z-10 mx-auto max-w-[845px]"
               data-wow-delay=".25s"
             >
-              <div class="mt-16">
+              
+              {{-- <div class="mt-16 size:50px">
                 <img
+                  size="50px"
                   src="assets/images/hero/man1bgr.jpg"
                   alt=""
                   class="mx-auto max-w-full rounded-t-xl rounded-tr-xl"
                 />
-              </div>
+              </div> --}}
               {{-- <div class="absolute bottom-0 -left-9 z-[-1]">
                 <svg
                   width="134"
@@ -5278,6 +5295,6 @@
 //       }
 
 //       window.document.addEventListener("scroll", onScroll);
-//     </script>
-//   </body>
-// </html>
+     </script>
+   </body>
+</html>

@@ -53,7 +53,7 @@
                                   <td>{{$item->no_telp}}</td>
                                   <td>{{$item->jk}}</td>
                                   <td>{{$item->tahun}}</td>
-                                  <td>{{$item->nominal}}</td>
+                                  <td>Rp. {{number_format( $item->nominal ) }}</td>
                                   {{-- <td>{{$item->tahun}} / Rp. {{number_format($item->nominal)}} </td> --}}
                                   <td>
                                       <div class="d-flex gap-2">

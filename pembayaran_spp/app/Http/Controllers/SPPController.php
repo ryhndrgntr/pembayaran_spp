@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 use Session;
 use App\Models\SPPModel;
 use Illuminate\Http\Request;
+use Validator;
 
 class SPPController extends Controller
 {
@@ -46,6 +47,11 @@ class SPPController extends Controller
      */
     public function store(Request $request)
     {
+        // $validatedData = $request->validate([
+        //     "tahun" => ['required', 'int'],
+        //     "nominal" => ['required', 'int'],
+        // ]);
+
         SPPModel::create([
             'tahun'=> $request->tahun,
             'nominal'=> $request->nominal,

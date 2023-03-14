@@ -18,7 +18,8 @@ class Transaksi extends Model
         'tahun_dibayar',
         'id_spp',
         'jumlah_bayar',
-        'id_siswa'
+        'id_siswa',
+        'is_admin'
     ];
     public $timestamp = true;
 }

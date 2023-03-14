@@ -19,9 +19,7 @@
                       <div class="card" style="width: 100%; margin 0 auto">
                         <div class="card-header">
                           <h3 class="card-title">{{$titlepage}}</h3>
-                          @if (Auth::user()->role == "petugas")
-                              <a href="{{route ('transaksi.create')}}" class="btn btn-primary" title="Tambah Data"><i class="fa-solid fa-plus"></i></a>
-                          @endif
+                          <a href="{{route ('transaksi.create')}}" class="btn btn-primary" title="Tambah Data"><i class="fa-solid fa-plus"></i></a>
                         </div>
                         <!-- /.card-header -->
                         <div class="card-body">
@@ -41,7 +39,7 @@
                                   <th>Tahun diBayar</th>
                                   <th>Jumlah Bayar</th>
                                   @if (Auth::user()->role == "petugas")
-                                    <th class="text-center">Aksi</th>
+                                    {{-- <th class="text-center">Aksi</th> --}}
                                   @endif  
                               </tr>
                           </thead>
@@ -51,7 +49,7 @@
                               @endphp
                               
                                 @foreach($data_transaksi as $item)
-                                  @if (Auth::user()->role == "admin")
+                                  {{-- @if (Auth::user()->role == "admin")
                                     <tr>
                                         <td>{{$no++}}</td>
                                         <td>{{$item->nisn}}</td>
@@ -74,9 +72,9 @@
                                           </td>
                                       @endif   
                                     </tr>
-                                  @endif 
+                                  @endif  --}}
 
-                                  @if (Auth::user()->role == "petugas" && $item->id_petugas == auth()->id())
+                                  @if (Auth::user()->role == "petugas" && $item->id_petugas == auth()->id() || Auth::user()->role == "admin" && $item->is_admin == auth()->id())
                                     <tr>
                                         <td>{{$no++}}</td>
                                         <td>{{$item->nisn}}</td>
@@ -84,18 +82,22 @@
                                         <td>{{$item->tgl_bayar}}</td>
                                         <td>{{$item->bulan_dibayar}}</td>
                                         <td>{{$item->tahun_dibayar}}</td>
-                                        <td>{{$item->jumlah_bayar}}</td>
-                                        <td>
-                                            <div class="d-flex gap-2 justify-content-center">
-                                                <a href="{{route ('transaksi.edit', $item->id_pembayaran)}}" class="btn btn-primary text-white">Edit</a>
-                                                <form action="{{route ('transaksi.destroy', $item->id_pembayaran)}}" method="post">
+                                        <td>Rp. 
+                                          <?php
+                                          echo number_format($item->nominal)."<br>";
+                                          ?>
+                                        </td>
+                                         {{-- <td>
+                                            <div class="d-flex gap-2 justify-content-center"> --}}
+                                                {{-- <a href="{{route ('transaksi.edit', $item->id_pembayaran)}}" class="btn btn-primary text-white">Edit</a> --}}
+                                                {{-- <form action="{{route ('transaksi.destroy', $item->id_pembayaran)}}" method="post">
                                                     @csrf
                                                     @method('DELETE')
                                                     <button class="btn btn-danger text-white"
                                                         onclick="return confirm('Apakah anda yakin ingin menghapus data ini?')">Hapus</a></button>
                                                 </form>
-                                            </div> 
-                                        </td>   
+                                              </div>
+                                         </td> --}}
                                     </tr>
                                   @endif
                                 @endforeach                                  

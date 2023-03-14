@@ -3,8 +3,12 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Auth;
 use App\Models\Transaksi;
 use App\Models\SiswaModel;
+use App\Models\SPPModel;
+use Illuminate\Support\Facades\DB;
+
 use Session;
 
 class TransaksiController extends Controller
@@ -22,6 +26,7 @@ class TransaksiController extends Controller
             "titlepage" => "Data Transaksi",
             "pageside" => "Menu",
             "data_transaksi" => Transaksi::join('siswa', 'siswa.id_siswa', '=', 'pembayaran.id_siswa')
+                                        ->join('spp', 'spp.id_spp', '=', 'pembayaran.id_spp')
                                          ->get()
         ];
         return view("transaksi.index", $data);
@@ -38,7 +43,8 @@ class TransaksiController extends Controller
             "titleside" => '-', 
             "titlepage" => "Create Transaksi",
             "pageside" => "Menu",
-            "data_siswa" => SiswaModel::all()
+            "data_siswa" => SiswaModel::all(),
+            "data_spp" => SPPModel::all(),
         ];
         return view("transaksi.create", $data);
     }
@@ -51,16 +57,47 @@ class TransaksiController extends Controller
      */
     public function store(Request $request)
     {
-        // dd($request->all());
-       Transaksi::create([
-           'id_petugas'=>$request->id_petugas,
-           'id_siswa'=> $request->nisn,
-            'tgl_bayar'=> $request->tgl_bayar,
-            'bulan_dibayar'=> $request->bulan_dibayar,
-            'tahun_dibayar'=> $request->tahun_dibayar,
-            'id_spp'=>$request->id_spp,
-            'jumlah_bayar'=> $request->jumlah_bayar,
+       $nisn = $request->nisn;
+       $bulan_dibayar = $request->bulan_dibayar;
+       $tahun_dibayar = $request->tahun_dibayar;
+       $jumlahbayar = (int)preg_replace('/[Rp. ]/','',$request->jumlah_bayar);
+ 
+    $check_bayar = DB::select("SELECT * FROM `pembayaran` WHERE `id_siswa` = " . $nisn . " AND `bulan_dibayar` = '" . $bulan_dibayar . "' AND `tahun_dibayar` = " . $tahun_dibayar . " limit 1;");
+        if ($check_bayar != null) {
+            $data = [
+                "titleside" => '-', 
+                "titlepage" => "Create Transaksi",
+                "pageside" => "Menu",
+                "data_siswa" => SiswaModel::all()
+            ];
+            return view("transaksi.create", $data)->with('message','Input gagal karena SPP sudah dibayar');  
+        }
+    //    dd($check_bayar);
+       
+       if(Auth::user()->role == "petugas"){
+        Transaksi::create([
+            'id_petugas'=>$request->id_petugas,
+            'id_siswa'=> $request->nisn,
+             'tgl_bayar'=> $request->tgl_bayar,
+             'bulan_dibayar'=> $request->bulan_dibayar,
+             'tahun_dibayar'=> $request->tahun_dibayar,
+             'id_spp'=>$request->id_spp,
+             'jumlah_bayar'=> $jumlahbayar,
+             'is_admin' => 0,
+         ]);
+       }
+       elseif (Auth::user()->role == "admin") {
+        Transaksi::create([
+            'id_petugas'=>$request->id_petugas,
+            'id_siswa'=> $request->nisn,
+             'tgl_bayar'=> $request->tgl_bayar,
+             'bulan_dibayar'=> $request->bulan_dibayar,
+             'tahun_dibayar'=> $request->tahun_dibayar,
+             'id_spp'=>$request->id_spp,
+             'jumlah_bayar'=> $jumlahbayar,
+             'is_admin' => $request->is_admin,
         ]);
+       }
 
         return redirect()->route('transaksi.index')->with('message','Data Telah Berhasil Ditambahkan');
     }
@@ -82,16 +119,16 @@ class TransaksiController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function edit($id)
-    {
-        $data = [
-            "titleside" => '-', 
-            "titlepage" => "Edit Transaksi",
-            "pageside" => "Menu",
-            "data_transaksi" => Transaksi::find($id)
-        ];
-        return view('transaksi.edit', $data);
-    }
+    // public function edit($id)
+    // {
+    //     $data = [
+    //         "titleside" => '-', 
+    //         "titlepage" => "Edit Transaksi",
+    //         "pageside" => "Menu",
+    //         "data_transaksi" => Transaksi::find($id)
+    //     ];
+    //     return view('transaksi.edit', $data);
+    // }
 
     /**
      * Update the specified resource in storage.

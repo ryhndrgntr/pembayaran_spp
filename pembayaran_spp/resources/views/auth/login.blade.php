@@ -81,14 +81,21 @@
     </div>
     <!-- ====== Banner Section End -->
 
-    <!-- ====== Forms Section Start -->
-    <section class="bg-[#F4F7FF] py-14 lg:py-20">
+    <!-- ====== Forms Section Start bg-[#F4F7FF] -->
+    <section class="py-14 lg:py-20" 
+    style="
+      background-image: url('https://i.ibb.co/2KvvhqW/download.jpg');
+      background-position: center;
+      background-size: cover;
+      ">
       <div class="container">
         <div class="-mx-4 flex flex-wrap">
-          <div class="w-full px-4">
+          <div class="w-full px-4"      >
             <div
               class="wow fadeInUp relative mx-auto max-w-[525px] overflow-hidden rounded-lg bg-white py-14 px-8 text-center sm:px-12 md:px-[60px]"
               data-wow-delay=".15s"
+              style="background: transparent;border: 2px solid rgba(255,255,255,0.5);
+              border-radius: 20px; backdrop-filter: blur(15px);"
             >
               <div class="mb-10 text-center">
                 <a
@@ -135,7 +142,8 @@
                   <input
                     type="submit"
                     value="Sign In"
-                    class="bordder-primary w-full cursor-pointer rounded-md border bg-primary py-3 px-5 text-base text-white transition duration-300 ease-in-out hover:shadow-md"
+                    class="bordder-primary w-full cursor-pointer rounded-md border py-3 px-5 text-base text-white transition duration-300 ease-in-out hover:shadow-md"
+                    style="background-color: #55cd4c        "
                   />
                 </div>
               </form>
@@ -786,13 +794,13 @@
       </div> --}}
 
       <div>
-        <span class="absolute left-0 top-0 z-[-1]">
+        {{-- <span class="absolute left-0 top-0 z-[-1]">
           <img src="assets/images/footer/shape-1.svg" alt="" />
         </span>
 
         <span class="absolute bottom-0 right-0 z-[-1]">
           <img src="assets/images/footer/shape-3.svg" alt="" />
-        </span>
+        </span> --}}
 
         <span class="absolute top-0 right-0 z-[-1]">
           <svg

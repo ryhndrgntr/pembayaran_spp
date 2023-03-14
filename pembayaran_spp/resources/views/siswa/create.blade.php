@@ -21,19 +21,39 @@
                                     <div class="row gx-0 gx-xl-3">
                                         <div class="col-xl mb-3">
                                             <label class="form-label">NISN</label>
-                                            <input name="nisn" type="text" class="form-control input-required bg-light" required>
+                                            <input class="form-control @error ('nisn') is-invalid @enderror" id="exampleFormControlInput1" type="text" name="nisn" placeholder="" data-bs-original-title="" title="" value="{{ old('nisn') }}">
+                                            @error('nisn')
+                                              <div class="invalid-feedback">
+                                                {{ $message }}
+                                              </div>
+                                            @enderror
                                         </div>
                                         <div class="col-xl-4 mb-3">
                                             <label class="form-label">Nama Siswa</label>
-                                            <input name="nama" type="text" class="form-control input-required bg-light" required>
+                                            <input class="form-control @error ('nama') is-invalid @enderror" id="exampleFormControlInput1" type="text" name="nama" placeholder="" data-bs-original-title="" title="" value="{{ old('nama') }}">
+                                            @error('nama')
+                                              <div class="invalid-feedback">
+                                                {{ $message }}
+                                              </div>
+                                            @enderror
                                         </div>
                                         <div class="col-xl mb-3">
                                             <label class="form-label">Alamat</label>
-                                            <input name="alamat" type="text" class="form-control input-required bg-light" required>
+                                            <input class="form-control @error ('alamat') is-invalid @enderror" id="exampleFormControlInput1" type="text" name="alamat" placeholder="" data-bs-original-title="" title="" value="{{ old('alamat') }}">
+                                            @error('alamat')
+                                              <div class="invalid-feedback">
+                                                {{ $message }}
+                                              </div>
+                                            @enderror
                                         </div>
                                         <div class="col-xl mb-3">
                                             <label class="form-label">No Telepon</label>
-                                            <input name="no_telp" type="text" class="form-control input-required bg-light" required>
+                                            <input class="form-control @error ('no_telp') is-invalid @enderror" id="exampleFormControlInput1" type="text" name="no_telp" placeholder="" data-bs-original-title="" title="" value="{{ old('no_telp') }}">
+                                            @error('no_telp')
+                                              <div class="invalid-feedback">
+                                                {{ $message }}
+                                              </div>
+                                            @enderror
                                         </div>
                                         <div class="col-xl-12 mb-3">
                                             <div id="jk" class="d-flex gap-3">

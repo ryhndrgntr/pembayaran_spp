@@ -9,6 +9,7 @@ use App\Models\SPPModel;
 use App\Models\User;
 use Illuminate\Support\Facades\Hash;
 use Session;
+use Validator; 
 
 
 class SiswaController extends Controller
@@ -60,17 +61,14 @@ class SiswaController extends Controller
      */
     public function store(Request $request)
     {
-        // dd($request->all());
-        // SiswaModel::create([
-        //     'nisn'=> $request->nisn,
-        //     'nama'=> $request->nama,
-        //     'id_kelas'=> $request->id_kelas,
-        //     'alamat'=> $request->alamat,
-        //     'no_telp'=> $request->no_telp,
-        //     'jk'=> $request->jk,
-        //     "id_kelas" => $request->kelas,
-        //     'id_spp'=> $request->spp,
-        // ]);
+        $validatedData = $request->validate([
+            "nama" => ['required', 'string'],
+            "nisn" => ['required', 'string',  'max:10'],
+            "alamat" => ['required', 'string'],
+            "no_telp" => ['required', 'string','max:13'],
+            "jk" => ['required', 'in:perempuan,laki-laki'],
+        ]);
+
         $nama = $request->nama;
 
         $user = User::create([

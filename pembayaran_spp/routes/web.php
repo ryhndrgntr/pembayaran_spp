@@ -9,6 +9,8 @@ use App\Http\Controllers\PetugasController;
 use App\Http\Controllers\KelasController;
 use App\Http\Controllers\SPPController;
 use App\Http\Controllers\TransaksiController;
+use App\Http\Controllers\LaporanController;
+use App\Http\Controllers\HistoriController;
 use App\Http\Controllers\AuthController;
 
 /*
@@ -31,13 +33,29 @@ Route::middleware(['auth','user-role:admin'])->group(function()
     Route::controller(Dashboard::class)->group(function () {
         Route::get('/dashadmin', 'admin');
     });
+
+    // Route::prefix('histori')->group(function(){
+    //     Route::get('/',[HistoriController::class, 'index'])->name('histori.index');
+    // });
+
     Route::resource('/siswa', SiswaController::class);
     Route::resource('/petugas', PetugasController::class);
     Route::resource('/kelas', KelasController::class);
     Route::resource('/spp', SPPController::class);
+
     // Route::resource('/transaksi', TransaksiController::class);
-    Route::prefix('transaksi')->group(function () {
-        Route::get('/list', [TransaksiController::class, 'index'])->name('transaksi.index');
+    // Route::prefix('transaksi')->group(function () {
+    //     Route::get('/', [TransaksiController::class, 'index'])->name('transaksi.index');
+    //     Route::get('/create', [TransaksiController::class, 'create'])->name('transaksi.create');
+    //     Route::post('/', [TransaksiController::class, 'store'])->name('transaksi.store');
+    //     Route::get('/{transaksi}/edit', [TransaksiController::class, 'edit'])->name('transaksi.edit');
+    //     Route::put('/{transaksi}', [TransaksiController::class, 'update'])->name('transaksi.update');
+    //     Route::delete('/{transaksi}', [TransaksiController::class, 'destroy'])->name('transaksi.destroy');
+    // });
+    
+    Route::prefix('laporan')->group(function(){
+        Route::get('/',[LaporanController::class, 'index'])->name('laporan.index');
+        Route::get('/cetak',[LaporanController::class, 'laporan'])->name('laporan.cetak');
     });
 });
 
@@ -46,14 +64,15 @@ Route::middleware(['auth','user-role:petugas'])->group(function()
     Route::controller(Dashboard::class)->group(function () {
         Route::get('/dashpetugas', 'petugas');
     });
-    Route::prefix('transaksi')->group(function () {
-        Route::get('/', [TransaksiController::class, 'index'])->name('transaksi.index');
-        Route::get('/create', [TransaksiController::class, 'create'])->name('transaksi.create');
-        Route::post('/', [TransaksiController::class, 'store'])->name('transaksi.store');
-        Route::get('/{transaksi}/edit', [TransaksiController::class, 'edit'])->name('transaksi.edit');
-        Route::put('/{transaksi}', [TransaksiController::class, 'update'])->name('transaksi.update');
-        Route::delete('/{transaksi}', [TransaksiController::class, 'destroy'])->name('transaksi.destroy');
-    });
+    // Route::prefix('transaksi')->group(function () {
+    //     Route::get('/', [TransaksiController::class, 'index'])->name('transaksi.index');
+    //     Route::get('/create', [TransaksiController::class, 'create'])->name('transaksi.create');
+    //     Route::post('/', [TransaksiController::class, 'store'])->name('transaksi.store');
+    //     Route::get('/{transaksi}/edit', [TransaksiController::class, 'edit'])->name('transaksi.edit');
+    //     Route::put('/{transaksi}', [TransaksiController::class, 'update'])->name('transaksi.update');
+    //     Route::delete('/{transaksi}', [TransaksiController::class, 'destroy'])->name('transaksi.destroy');
+    // });
+
 });
 
 Route::middleware(['auth','user-role:siswa'])->group(function()
@@ -61,7 +80,23 @@ Route::middleware(['auth','user-role:siswa'])->group(function()
     Route::controller(Dashboard::class)->group(function () {
         Route::get('/dashsiswa', 'siswa');
     });
+    // Route::prefix('histori')->group(function(){
+    //     Route::get('/',[HistoriController::class, 'index'])->name('histori.index');
+    // });
 });
+
+Route::resource('/transaksi', TransaksiController::class)->middleware('auth','user-role:admin,petugas');
+Route::resource('/histori', HistoriController::class)->middleware('auth','user-role:admin,siswa');
+
+// Route::middleware(['auth','user-role:siswa'])->group(function()
+// {
+//     Route::controller(Dashboard::class)->group(function () {
+//         Route::get('/dashsiswa', 'siswa');
+//     });
+//     Route::prefix('histori')->group(function(){
+//         Route::get('/',[HistoriController::class, 'index'])->name('histori.index');
+//     });
+// });
 
 
 

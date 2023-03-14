@@ -47,6 +47,11 @@ class KelasController extends Controller
      */
     public function store(Request $request)
     {
+        $validatedData = $request->validate([
+            "nama_kelas" => ['required', 'string'],
+            "jurusan" => ['required', 'string'],
+        ]);
+
         KelasModel::create([
             'nama_kelas'=> $request->nama_kelas,
             'jurusan'=> $request->jurusan,

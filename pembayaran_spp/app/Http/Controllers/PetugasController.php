@@ -7,6 +7,7 @@ use Illuminate\Support\Facades\Hash;
 use Session;
 use App\Models\PetugasModel;
 use App\Models\User;
+use Validator;
 
 class PetugasController extends Controller
 {
@@ -50,6 +51,17 @@ class PetugasController extends Controller
      */
     public function store(Request $request)
     {
+        $validatedData = $request->validate([
+            "nama_petugas" => ['required', 'string'],
+            'email' => 'required|email|unique:users,email',
+            'password' => 'required|same:confirm_password'
+        ], [
+            'nama_petugas.required' => 'Nama petugas tidak boleh kosong',
+            'email.required' => 'Email tidak boleh kosong',
+            'password.required' => 'Password tidak boleh kosong',
+        ]);
+        
+
         $nama = $request->nama_petugas;
 
         $user = User::create([
