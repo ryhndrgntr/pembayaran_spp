@@ -8,6 +8,17 @@
             <div class="col-12">
                 <div class="card card-chart">
                     <div class="card-header ">
+                        <span>
+                            @if ($errors->any())
+                                <div class="alert alert-danger">
+                                    <ul>
+                                        @foreach ($errors->all() as $error)
+                                            <li>{{ $error }}</li>
+                                        @endforeach
+                                    </ul>
+                                </div>
+                            @endif
+                        </span>
                         <div class="row">
                             <div class="card-header">
                                 <div class="card-header fw-bold bg-grad text-black">
@@ -114,7 +125,7 @@
                                             <div class="col-xl-4 mb-3">
                                                 <label class="form-label">Tanggal Bayar</label>
                                                 <input name="tgl_bayar" type="date"
-                                                    class="form-control input-required bg-light" value="{{ date('Y-m-d') }}"
+                                                    class="form-control input-required text-dark bg-light" value="{{ date('Y-m-d') }}"
                                                     required>
                                             </div>
                                             <div class="col-xl-12 mb-3">
@@ -122,7 +133,7 @@
                                                     <div class="w-100">
                                                         <label class="form-label">Bulan diBayar</label>
                                                         <select name="bulan_dibayar" id="select-bulan_dibayar"
-                                                            class="form-control input-required" required>
+                                                            class="form-control input-required text-dark bg-light" required>
                                                             <option value="">Pilih Bulan diBayar</option>
                                                             <option value="Januari">Januari</option>
                                                             <option value="Februari">Februari</option>
@@ -145,7 +156,7 @@
                                                     <div class="w-100">
                                                         <label class="form-label">Tahun diBayar</label>
                                                         <select name="tahun_dibayar" id="select-tahun_dibayar"
-                                                            class="form-control input-required" required>
+                                                            class="form-control input-required text-dark bg-light" required>
                                                             <option value="">Pilih Tahun diBayar</option>
                                                             <option value="2022">2022</option>
                                                             <option value="2023">2023</option>
@@ -156,7 +167,7 @@
                                             <div class="col-xl mb-3">
                                                 <label class="form-label">Jumlah Bayar</label>
                                                 <input name="jumlah_bayar" type="text"
-                                                    class="form-control input-required" id="dengan-rupiah">
+                                                    class="form-control input-required text-dark bg-light" id="dengan-rupiah">
                                             </div>
                                             <input type="hidden" name="id_petugas" value="{{ auth()->id() }}">
                                             <input type="hidden" name="is_admin" value="{{ auth()->id() }}">

@@ -7,6 +7,17 @@
     <div class="col-12">
       <div class="card card-chart">
         <div class="card-header ">
+            <span>
+                @if ($errors->any())
+                    <div class="alert alert-danger">
+                        <ul>
+                            @foreach ($errors->all() as $error)
+                                <li>{{ $error }}</li>
+                            @endforeach
+                        </ul>
+                    </div>
+                @endif
+            </span>
           <div class="row">
               <div class="card-header">
                 <div class="card-header fw-bold bg-grad text-black">
@@ -21,15 +32,15 @@
                                     <div class="row gx-0 gx-xl-3">
                                         <div class="col-xl mb-3">
                                             <label class="form-label">Email</label>
-                                            <input name="email" type="text" class="form-control input-required" required>
+                                            <input name="email" type="text" class="form-control input-required text-dark bg-light" required>
                                         </div>
                                         <div class="col-xl mb-3">
                                             <label class="form-label">Password</label>
-                                            <input name="password" type="password" class="form-control input-required" required>
+                                            <input name="password" type="password" class="form-control input-required text-dark bg-light" required>
                                         </div>
                                         <div class="col-xl-4 mb-3">
                                             <label class="form-label">Nama Petugas</label>
-                                            <input name="nama_petugas" type="text" class="form-control input-required" required>
+                                            <input name="nama_petugas" type="text" class="form-control input-required text-dark bg-light" required>
                                         </div>
                                         <div class="col-xl-12 mb-3">
                                             
@@ -46,7 +57,7 @@
                                         </div>
                                         
                                         <div class="d-flex gap-2">
-                                            <button class="btn btn-primary" data-form-id="#form-musrenbang">Tambah Data</button>
+                                            <button class="btn btn-success" data-form-id="#form-musrenbang">Tambah Data</button>
                                         </div>
                                     </div>
                                 </div>

@@ -52,9 +52,9 @@ class PetugasController extends Controller
     public function store(Request $request)
     {
         $validatedData = $request->validate([
-            "nama_petugas" => ['required', 'string'],
+            "nama_petugas" => ['required', 'string', 'unique:petugas'],
             'email' => 'required|email|unique:users,email',
-            'password' => 'required|same:confirm_password'
+            'password' => 'required'// |same:confirm_password'
         ], [
             'nama_petugas.required' => 'Nama petugas tidak boleh kosong',
             'email.required' => 'Email tidak boleh kosong',

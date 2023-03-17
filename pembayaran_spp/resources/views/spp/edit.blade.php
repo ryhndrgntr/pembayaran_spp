@@ -22,13 +22,13 @@
                                     <div class="row gx-0 gx-xl-3">
                                         <div class="col-xl mb-3">
                                             <label class="form-label">Nominal</label>
-                                            <input name="nominal" type="text" class="form-control input-required" required value="250000" disabled>
+                                            <input name="nominal" type="text" class="form-control input-required text-dark bg-light" required value="250000" disabled>
                                         </div>
                                         <div class="col-xl-12 mb-3">
                                             <div id="tahun" class="d-flex gap-3">
                                                 <div class="w-100">
                                                     <label class="form-label">Tahun</label>
-                                                    <select name="tahun" id="select-tahun" class="form-control input-required text-dark" required>
+                                                    <select name="tahun" id="select-tahun" class="form-control input-required text-dark bg-light" required>
                                                         <option value="">-- Tahun --</option>
                                                         <option @if($data_spp->tahun == "2022"): @selected(true) @endif value="2022">2022</option>
                                                         <option @if($data_spp->tahun == "2023"): @selected(true) @endif value="2023">2023</option>
@@ -37,7 +37,7 @@
                                             </div>
                                         </div>
                                         <div class="col-6">
-                                            <button class="btn btn-primary">Tambah Data</button>
+                                            <button class="btn btn-success">Tambah Data</button>
                                           </div>
                                     </div>
                                 </div>

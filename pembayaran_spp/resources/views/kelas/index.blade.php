@@ -19,7 +19,7 @@
                       <div class="card" style="width: 100%; margin 0 auto">
                         <div class="card-header">
                           <h3 class="card-title">{{$titlepage}}</h3>
-                          <a href="kelas/create" class="btn btn-primary" title="Tambah Data Kelas"><i class="fa-solid fa-plus"></i></a>
+                          <a href="kelas/create" class="btn btn-success" title="Tambah Data Kelas"><i class="fa-solid fa-plus"></i></a>
                         </div>
                         <!-- /.card-header -->
                         <div class="card-body">
@@ -48,12 +48,12 @@
                                   <td>{{$item->jurusan}}</td>
                                   <td>
                                       <div class="d-flex gap-2 justify-content-center">
-                                          <a href="{{route ('kelas.edit', $item->id_kelas)}}" class="btn btn-primary text-white">Edit</a>
+                                          <a href="{{route ('kelas.edit', $item->id_kelas)}}" class="btn-sm btn-success text-white"><i class="fas fa-pencil"></i></a>
                                           <form action="{{route ('kelas.destroy', $item->id_kelas)}}" method="post">
                                               @csrf
                                               @method('DELETE')
-                                              <button class="btn btn-danger text-white"
-                                                  onclick="return confirm('Apakah anda yakin ingin menghapus data ini?')">Hapus</a></button>
+                                              <button class="btn-sm btn-danger text-white"
+                                                  onclick="return confirm('Apakah anda yakin ingin menghapus data ini?')"><i class="fas fa-trash"></i></a></button>
                                           </form>
                                       </div> 
                                   </td>

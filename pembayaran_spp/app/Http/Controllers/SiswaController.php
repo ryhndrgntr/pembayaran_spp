@@ -27,7 +27,7 @@ class SiswaController extends Controller
             "pageside" => "Menu",
             "data_siswa" => SiswaModel::join('kelas', 'kelas.id_kelas', '=', 'siswa.id_kelas')
                                     ->join('spp', 'spp.id_spp', '=', 'siswa.id_spp')
-                                    ->join("users", "users.id", "=" , "siswa.id_users")
+                                    //->join("users", "users.id", "=" , "siswa.id_users")
                                     ->get()
         ];
         // dd($data);
@@ -62,7 +62,7 @@ class SiswaController extends Controller
     public function store(Request $request)
     {
         $validatedData = $request->validate([
-            "nama" => ['required', 'string'],
+            "nama" => ['required', 'string', 'unique:siswa'],
             "nisn" => ['required', 'string',  'max:10'],
             "alamat" => ['required', 'string'],
             "no_telp" => ['required', 'string','max:13'],

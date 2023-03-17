@@ -19,7 +19,7 @@
                         <div class="card" style="width: 100%; margin 0 auto">
                           <div class="card-header">
                             <h3 class="card-title">{{ $titlepage }}</h3>
-                            <a href="petugas/create" class="btn btn-primary" title="Tambah Data Petugas"><i class="fa-solid fa-plus"></i></a>
+                            <a href="petugas/create" class="btn btn-success" title="Tambah Data Petugas"><i class="fa-solid fa-plus"></i></a>
                           </div>
                           <!-- /.card-header -->
                           <div class="card-body">
@@ -48,13 +48,13 @@
                                     <td>{{$p->nama_petugas}}</td>
                                     <td>
                                         <div class="d-flex gap-2">
-                                            <a href="{{route ('petugas.edit', $p->id_petugas)}}" class="btn btn-primary text-white">Edit</a>
+                                            <a href="{{route ('petugas.edit', $p->id_petugas)}}" class="btn-sm btn-success text-white"><i class="fas fa-pencil"></i></a>
                                             <form action="{{route ('petugas.destroy', $p->id_petugas)}}" method="post">
                                                 @csrf
                                                 <input type="hidden" name="id_users" value="{{ $p->id_users }}">
                                                 @method('DELETE')
-                                                <button class="btn btn-danger text-white"
-                                                    onclick="return confirm('Apakah anda yakin ingin menghapus data ini?')">Hapus</a></button>
+                                                <button class="btn-sm btn-danger text-white"
+                                                    onclick="return confirm('Apakah anda yakin ingin menghapus data ini?')"><i class="fas fa-trash"></i></a></button>
                                             </form>
                                         </div> 
                                     </td>

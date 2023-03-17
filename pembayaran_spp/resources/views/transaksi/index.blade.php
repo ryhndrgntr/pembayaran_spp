@@ -19,7 +19,7 @@
                       <div class="card" style="width: 100%; margin 0 auto">
                         <div class="card-header">
                           <h3 class="card-title">{{$titlepage}}</h3>
-                          <a href="{{route ('transaksi.create')}}" class="btn btn-primary" title="Tambah Data"><i class="fa-solid fa-plus"></i></a>
+                          <a href="{{route ('transaksi.create')}}" class="btn btn-success" title="Tambah Data"><i class="fa-solid fa-plus"></i></a>
                         </div>
                         <!-- /.card-header -->
                         <div class="card-body">
@@ -84,7 +84,7 @@
                                         <td>{{$item->tahun_dibayar}}</td>
                                         <td>Rp. 
                                           <?php
-                                          echo number_format($item->nominal)."<br>";
+                                          echo number_format($item->jumlah_bayar)."<br>";
                                           ?>
                                         </td>
                                          {{-- <td>

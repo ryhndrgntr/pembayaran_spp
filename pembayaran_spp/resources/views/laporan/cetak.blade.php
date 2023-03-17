@@ -1,39 +1,3 @@
-{{-- <!DOCTYPE html>
-<html>
-<head>
-</head>
-<body>
-
-<h1>Laporan Pembayaran SPP</h1>
-
-<table id="customers">
-    <thead>
-        <tr>
-           <th>Petugas</th>
-           <th>NISN</th>
-           <th>Nama</th>
-           <th>Kelas</th>
-           <th>Tanggal Bayar</th>
-           <th>Jumlah Bayar</th>
-        </tr>
-     </thead>
-     <tbody>
-        @foreach($data_transaksi as $id)
-        <tr>
-           <td>{{ $id->nama_petugas }}</td>
-           <td>{{ $id->nisn }}</td>
-           <td>{{ $id->nama }}</td>
-           <td>{{ $id->nama_kelas }}</td>
-           <td>{{ $id->tgl_bayar }}</td>
-           <td>{{ $id->jumlah_bayar }}</td>
-        </tr>
-        @endforeach
-     </tbody>
-</table>
-
-</body>
-</html> --}}
-
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -70,7 +34,14 @@
 <body>
    <div classs="container">
       <div class="text-center">
-         <h1 class="text-dark mb-5">Laporan Pembayaran SPP</h1>
+         {{-- <img class="position-absolute d-flex flex-start img-fluid pt-3 px-3" src={{ asset('assets/images/karasuno1.png') }} alt="karasuno" width="20%"/> --}}
+         <h4 class="text-dark">KARASUNO HIGH SCHOOL</h4>
+         <h5>HIGH SCHOOL TERBAIK</h5>
+         <h5>KOTA ISEKAI</h5>
+         <h5><strong> NSS: 795292212 </strong></h5>
+         <h5>TERAKREDITASI A</h5>
+         <i>Jl. Wall Maria No. 79A, Isekai, Jepang, Telp. (0241) 35675 Kode Pos 79525</i>
+         <div class="mb-5" />
       </div>
       <div class="justify-content-center">
          <table class="table table-bordered" id="customers">

@@ -48,7 +48,7 @@ class KelasController extends Controller
     public function store(Request $request)
     {
         $validatedData = $request->validate([
-            "nama_kelas" => ['required', 'string'],
+            "nama_kelas" => ['required', 'string', 'unique:kelas'],
             "jurusan" => ['required', 'string'],
         ]);
 

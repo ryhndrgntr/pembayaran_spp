@@ -7,6 +7,17 @@
     <div class="col-12">
       <div class="card card-chart">
         <div class="card-header ">
+            <span>
+                @if ($errors->any())
+                    <div class="alert alert-danger">
+                        <ul>
+                            @foreach ($errors->all() as $error)
+                                <li>{{ $error }}</li>
+                            @endforeach
+                        </ul>
+                    </div>
+                @endif
+            </span>
           <div class="row">
               <div class="card-header">
                 <div class="card-header fw-bold bg-grad text-black">
@@ -21,7 +32,7 @@
                                     <div class="row gx-0 gx-xl-3">
                                         <div class="col-xl mb-3">
                                             <label class="form-label">NISN</label>
-                                            <input class="form-control @error ('nisn') is-invalid @enderror" id="exampleFormControlInput1" type="text" name="nisn" placeholder="" data-bs-original-title="" title="" value="{{ old('nisn') }}">
+                                            <input class="form-control @error ('nisn') is-invalid @enderror" id="exampleFormControlInput1" type="number" name="nisn" placeholder="" data-bs-original-title="" title="" value="{{ old('nisn') }}">
                                             @error('nisn')
                                               <div class="invalid-feedback">
                                                 {{ $message }}
@@ -48,7 +59,7 @@
                                         </div>
                                         <div class="col-xl mb-3">
                                             <label class="form-label">No Telepon</label>
-                                            <input class="form-control @error ('no_telp') is-invalid @enderror" id="exampleFormControlInput1" type="text" name="no_telp" placeholder="" data-bs-original-title="" title="" value="{{ old('no_telp') }}">
+                                            <input class="form-control @error ('no_telp') is-invalid @enderror" id="exampleFormControlInput1" type="number" name="no_telp" placeholder="" data-bs-original-title="" title="" value="{{ old('no_telp') }}">
                                             @error('no_telp')
                                               <div class="invalid-feedback">
                                                 {{ $message }}
@@ -94,7 +105,7 @@
                                             </div>
                                         </div>
                                         <div class="col-6 mt-3">
-                                            <button type="submit" class="btn btn-primary">Tambah Data</button>
+                                            <button type="submit" class="btn btn-success">Tambah Data</button>
                                           </div>
                                     </div>
                                 </div>

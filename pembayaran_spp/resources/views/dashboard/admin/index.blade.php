@@ -12,8 +12,8 @@
           </div>
         </div>
         <div class="card-body">
-          <h3 class="text-light">{{ $sentences }}</h3>
-          <h4 class="text-light">Welcome {{ $name_user }}</h4>
+          <h3 class="text-light ml-3">{{ $sentences }}</h3>
+          <h4 class="text-light ml-3">Welcome {{ $name_user }}</h4>
         </div>
       </div>
     </div>

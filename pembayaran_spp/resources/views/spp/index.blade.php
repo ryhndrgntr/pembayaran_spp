@@ -19,7 +19,7 @@
           <div class="card" style="width: 100%; margin 0 auto">
             <div class="card-header">
               <h3 class="card-title">{{$titlepage}}</h3>
-              <a href="spp/create" class="btn btn-primary" title="Tambah Data SPP"><i class="fa-solid fa-plus"></i></a>
+              <a href="spp/create" class="btn btn-success" title="Tambah Data SPP"><i class="fa-solid fa-plus"></i></a>
             </div>
             <!-- /.card-header -->
             <div class="card-body">
@@ -48,12 +48,12 @@
                       <td>{{$item->nominal}}</td>
                       <td>
                           <div class="d-flex gap-2">
-                              <a href="{{route ('spp.edit', $item->id_spp)}}" class="btn btn-primary text-white">Edit</a>
+                              <a href="{{route ('spp.edit', $item->id_spp)}}" class="btn-sm btn-success text-white"><i class="fas fa-pencil"></i></a>
                               <form action="{{route ('spp.destroy', $item->id_spp)}}" method="post">
                                   @csrf
                                   @method('DELETE')
-                                  <button class="btn btn-danger text-white"
-                                      onclick="return confirm('Apakah anda yakin ingin menghapus data ini?')">Hapus</a></button>
+                                  <button class="btn-sm btn-danger text-white"
+                                      onclick="return confirm('Apakah anda yakin ingin menghapus data ini?')"><i class="fas fa-trash"></i></a></button>
                               </form>
                           </div> 
                       </td>

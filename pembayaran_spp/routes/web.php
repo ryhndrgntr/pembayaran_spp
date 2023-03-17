@@ -23,9 +23,9 @@ use App\Http\Controllers\AuthController;
 | contains the "web" middleware group. Now create something great!
 |
 */
-Route::get('/', [AuthController::class, 'landing'])->name('landing');
-Route::get('/login', [AuthController::class, 'showLoginForm'])->name('login');
-Route::post('/login', [AuthController::class, 'login']);
+// Route::get('/', [AuthController::class, 'landing'])->name('landing');
+Route::get('/', [AuthController::class, 'showLoginForm'])->name('login');
+Route::post('/login', [AuthController::class, 'login'])->name('signin') ;
 Route::post('/logout', [AuthController::class, 'logout'])->name('logout');
 
 Route::middleware(['auth','user-role:admin'])->group(function()
@@ -55,7 +55,7 @@ Route::middleware(['auth','user-role:admin'])->group(function()
     
     Route::prefix('laporan')->group(function(){
         Route::get('/',[LaporanController::class, 'index'])->name('laporan.index');
-        Route::get('/cetak',[LaporanController::class, 'laporan'])->name('laporan.cetak');
+        Route::post('/cetak',[LaporanController::class, 'laporan'])->name('laporan.cetak');
     });
 });
 

@@ -23,25 +23,25 @@
                                             <div class="row gx-0 gx-xl-3">
                                                 <div class="col-xl mb-3">
                                                     <label class="form-label">NISN</label>
-                                                    <input name="nisn" type="text" value="{{ $data_siswa->nisn }}" class="form-control input-required" readonly>
+                                                    <input name="nisn" type="text" value="{{ $data_siswa->nisn }}" class="form-control input-required text-dark bg-light" readonly>
                                                 </div>
                                                 <div class="col-xl mb-3">
                                                     <label class="form-label">Nama</label>
-                                                    <input name="nama" type="text" value="{{ $data_siswa->nama }}" class="form-control input-required" required>
+                                                    <input name="nama" type="text" value="{{ $data_siswa->nama }}" class="form-control input-required text-dark bg-light" required>
                                                 </div>
                                                 <div class="col-xl mb-3">
                                                     <label class="form-label">Alamat</label>
-                                                    <input name="alamat" type="text" value="{{ $data_siswa->alamat }}" class="form-control input-required" required>
+                                                    <input name="alamat" type="text" value="{{ $data_siswa->alamat }}" class="form-control input-required text-dark bg-light" required>
                                                 </div>
                                                 <div class="col-xl mb-3">
                                                     <label class="form-label">No Telepon</label>
-                                                    <input name="no_telp" type="text" value="{{ $data_siswa->no_telp }}" class="form-control input-required" required>
+                                                    <input name="no_telp" type="text" value="{{ $data_siswa->no_telp }}" class="form-control input-required text-dark bg-light" required>
                                                 </div>
                                                 <div class="col-xl-12 mb-3">
                                                     <div id="jk" class="d-flex gap-3">
                                                         <div class="w-100">
                                                             <label class="form-label">Jenis Kelamin</label>
-                                                            <select name="jk" id="select-jk" class="form-control input-required text-light" required>
+                                                            <select name="jk" id="select-jk" class="form-control input-required text-dark bg-light" required>
                                                                 <option value="">-- Jenis Kelamin --</option>
                                                                 <option @if($data_siswa->jk == "perempuan"): @selected(true) @endif value="perempuan">Perempuan</option>
                                                                 <option @if($data_siswa->jk == "laki-laki"): @selected(true) @endif value="laki-laki">Laki-laki</option>
@@ -77,7 +77,7 @@
                                                 </div>
                                             </div>
                                             <div class="row justify-content-center">
-                                                <button type="submit" class="btn btn-primary">Submit</button>
+                                                <button type="submit" class="btn btn-success">Submit</button>
                                             </div>
                                         </div>
                                     </div>

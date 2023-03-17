@@ -12,17 +12,19 @@
           </a>
         </li> --}}
         <li class="nav-item">
-          <a href="javascript:void(0)" class="nav-link">
-            App Pembayaran dan SPP
+          <a href="#" class="nav-link">
+            App Pembayaran SPP
           </a>
         </li>
       </ul>
       <div class="copyright">
-        ©
+        Copyright &copy; KARASUNO HIGH SCHOOL
         <script>
-          document.write(new Date().getFullYear())
-        </script>2023 dibuat dengan <i class="tim-icons icon-heart-2"></i> oleh
-        <a href="https://instagram.com/__by.llaa" target="_blank">Nabila Septia</a> untuk App Pembayaran dan SPP.
+          document.write(new Date().Year())
+        </script>
+        {{-- <i class="fas fa-school"></i> oleh --}}
+        {{-- di buat oleh
+        <a href="https://instagram.com/__by.llaa" target="_blank">Nabila Septia</a> --}}
       </div>
     </div>
   </footer>

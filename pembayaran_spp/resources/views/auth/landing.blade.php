@@ -3,14 +3,14 @@
     {{-- <div style="margin: 0; padding: 0; height: 100%; background-image: url('assets/images/hero/man1bgr.jpg !'); background-size: cover; background-position: center;"> --}}
     <div
       class="ud-header absolute top-0 left-0 z-40 flex w-full items-center bg-transparent"
-      style="background-color: #55cd4c"
+      style="background-color: #F57C00"
     >
       <div class="container">
         <div class="relative -mx-4 flex items-center justify-between">
           <div class="w-60 px-4">
             <a href="#home" class="navbar-logo block py-5">
               <img
-                src="assets/images/logo/kemenag2.png" width="70em"
+                src="assets/images/logo/karasuno1.png" width="70em"
                 alt="logo"
                 class="header-logo"
               />

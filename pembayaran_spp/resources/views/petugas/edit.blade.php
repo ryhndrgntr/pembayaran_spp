@@ -19,15 +19,15 @@
                         @method('put')
                         <div class="col-md-6">
                           <label class="form-label">Email</label>
-                          <input type="text" class="form-control" name="email" value="{{ $data_petugas->email }}" required>
+                          <input type="text" class="form-control text-dark bg-light" name="email" value="{{ $data_petugas->email }}" required>
                         </div>
                         <div class="col-md-6">
                           <label class="form-label">Password</label>
-                          <input type="password" class="form-control" name="password" value="{{ $data_petugas->password }}" readonly>
+                          <input type="password" class="form-control text-dark bg-light" name="password" value="{{ $data_petugas->password }}" readonly>
                         </div>
                         <div class="col-6 mt-3">
                           <label class="form-label">Nama Petugas</label>
-                          <input type="text" class="form-control" name="nama_petugas" value="{{ $data_petugas->nama_petugas }}" required>
+                          <input type="text" class="form-control text-dark bg-light" name="nama_petugas" value="{{ $data_petugas->nama_petugas }}" required>
                         </div>
                         <div class="col-6 mt-5">
                             
@@ -39,7 +39,7 @@
                             </select> --}}
                         </div>
                         <div class="col-6 mt-3">
-                          <button type="submit" class="btn btn-primary">Submit</button>
+                          <button type="submit" class="btn btn-success">Submit</button>
                         </div>
                       </form>
                 </div>

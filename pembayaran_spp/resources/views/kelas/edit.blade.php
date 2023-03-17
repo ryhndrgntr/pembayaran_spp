@@ -21,7 +21,7 @@
                                 <div id="nama_kelas" class="d-flex gap-3">
                                     <div class="w-100">
                                         <label class="form-label">Kelas</label>
-                                        <select name="nama_kelas" id="select-nama_kelas" class="form-control input-required" required>
+                                        <select name="nama_kelas" id="select-nama_kelas" class="form-control input-required text-dark bg-light" required>
                                             <option value="">Pilih Berdasarkan Kelas</option>
                                             <option @if($data_kelas->nama_kelas == "X MIPA 1"): @selected(true) @endif value="X MIPA 1">X MIPA 1</option>
                                             <option @if($data_kelas->nama_kelas == "X MIPA 2"): @selected(true) @endif value="X MIPA 2">X MIPA 2</option>
@@ -59,7 +59,7 @@
                                             <div id="jurusan" class="d-flex gap-3">
                                                 <div class="w-100">
                                                     <label class="form-label">Jurusan</label>
-                                                    <select name="jurusan" id="select-jurusan" class="form-control input-required" required>
+                                                    <select name="jurusan" id="select-jurusan" class="form-control input-required text-dark bg-light" required>
                                                         <option value="">Pilih Berdasarkan Jurusan</option>
                                                         <option @if($data_kelas->jurusan == "MIPA"): @selected(true) @endif value="MIPA">MIPA</option>
                                                         <option @if($data_kelas->jurusan == "IPS"): @selected(true) @endif value="IPS">IPS</option>
@@ -67,9 +67,25 @@
                                                 </div>
                                             </div>
                                         </div>
+{{-- 
+                                        <div class="col-xl mb-3">
+                                            <div id="nama" class="d-flex gap-3">
+                                                <div class="w-100">
+                                                    <label class="form-label">Nama Siswa</label>
+                                                    <select name="nama" id="select-nama"
+                                                        class="form-control input-required text-dark bg-light" required>
+                                                        <option value="">Nama Siswa</option>
+                                                        @foreach ($data_siswa as $value)
+                                                            <option value="{{ $value->id_siswa }}"> {{ $value->nisn }}
+                                                                - {{ $value->nama }}</option>
+                                                        @endforeach
+                                                    </select>
+                                                </div>
+                                            </div>
+                                        </div> --}}
                                         
                                         <div class="col-6 mt-3">
-                                            <button type="submit" class="btn btn-primary">Submit</button>
+                                            <button type="submit" class="btn btn-success">Submit</button>
                                           </div>
                                     </div>
                                 </div>
