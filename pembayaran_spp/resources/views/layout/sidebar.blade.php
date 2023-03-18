@@ -75,6 +75,12 @@
                         <p>Transaksi</p>
                     </a>
                 </li>
+                <li class="{{ (request()->is('histori')) ? 'active' : '' }}">
+                    <a href="/histori">
+                        <i class="fas fa-history"></i>
+                        <p>Histori Pembayaran</p>
+                    </a>
+                </li>
             @endif
 
             @if (Auth::user()->role == "siswa")

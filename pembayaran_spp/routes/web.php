@@ -28,6 +28,9 @@ Route::get('/', [AuthController::class, 'showLoginForm'])->name('login');
 Route::post('/login', [AuthController::class, 'login'])->name('signin') ;
 Route::post('/logout', [AuthController::class, 'logout'])->name('logout');
 
+// Route::get('/dash', [AuthController::class, 'index'])->middleware('auth')->name('dash');
+
+
 Route::middleware(['auth','user-role:admin'])->group(function()
 {
     Route::controller(Dashboard::class)->group(function () {

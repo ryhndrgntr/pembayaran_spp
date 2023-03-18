@@ -49,7 +49,18 @@
                                         <td>{{$item->tahun_dibayar}}</td>
                                     </tr>
                                 @endif    
-                                @if (Auth::user()->role == "admin")  {{-- kondisi : jika yang login itu role adalah siswa --}}
+                                @if (Auth::user()->role == "petugas" && $item->id_petugas == auth()->id())  {{-- kondisi : jika yang login itu role adalah petugas --}}
+                                    <tr>
+                                        <td>{{$no++}}</td>
+                                        <td>{{$item->nama}}</td>
+                                        <td>{{$item->nama_kelas}}</td>
+                                        <td>{{$item->jurusan}}</td>
+                                        <td>Rp. {{number_format( $item->nominal ) }}</td>
+                                        <td>{{$item->bulan_dibayar}}</td>
+                                        <td>{{$item->tahun_dibayar}}</td>
+                                    </tr>
+                                @endif    
+                                @if (Auth::user()->role == "admin")  {{-- kondisi : jika yang login itu role adalah admin --}}
                                     <tr>
                                         <td>{{$no++}}</td>
                                         <td>{{$item->nama}}</td>
